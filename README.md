@@ -2,7 +2,15 @@
 
 ## אפליקציית Next.js
 
-עמוד הגלריה "אחדות שהופכת לזיכרונות", ממומש מתוך פריים `AWARD WINNERS` בקובץ ה-Figma (node `2024:2733`).
+עמודים שממומשים מתוך קובץ ה-Figma `UNITY-DAY`:
+
+| נתיב | פריים ב-Figma | node |
+| --- | --- | --- |
+| `/gallery` | AWARD WINNERS (גלריה) | `2024:2733` |
+| `/moments` | moments of unity | `2024:3010` |
+| `/prize/committee` | The prize committee | `2024:3296` |
+| `/prize/nominations` | Call for Nominations | `2024:3603` |
+| `/thank-you` | THANK YOU - DONATION | `2024:4256` |
 
 ```bash
 npm install
@@ -14,13 +22,15 @@ npm run build      # בילד פרודקשן
 - `app/gallery/page.tsx` - העמוד עצמו (הירו + גלריה). `/` מפנה אליו.
 - `app/gallery/GalleryBrowser.tsx` - צ'יפים לסינון לפי שנה וקטגוריה, קרוסלה (חיצים + נקודות) וגריד ה-bento.
 - `app/gallery/data.ts` - רשימת התמונות. **Placeholder**: בעיצוב יש 3 עמודי קרוסלה אבל רק 5 תמונות, אז עמודים 2-3 משתמשים שוב באותן תמונות, והתגיות (שנה/קטגוריה) שרירותיות. להחליף בפיד אמיתי מה-CMS.
-- `components/SiteHeader.tsx`, `components/SiteFooter.tsx` - הדר ופוטר משותפים לשאר העמודים.
+- `components/SiteHeader.tsx`, `components/SiteFooter.tsx` - הדר ופוטר משותפים לכל העמודים. `components/PillButton.tsx` - כפתור הגלולה.
+- `app/moments/data.ts`, `app/prize/committee/members.ts` - גם כאן התוכן הוא placeholder מהעיצוב (שמות חברי ועדה, כרטיסי ארכיון).
 - `app/globals.css` - טוקנים של העיצוב (צבעים, רדיוסים, gradient 2 של הפוטר).
-- `public/gallery/` - כל הנכסים שהורדו מ-Figma (תמונות דחוסות ל-2400px, SVG כמו שהם).
+- `public/site/` - נכסים של ההדר והפוטר. `public/<עמוד>/` - הנכסים של כל עמוד. הכל הורד מ-Figma (תמונות דחוסות ל-2400px, SVG כמו שהם).
 
 ### לפני עלייה לאוויר
 - **פונט**: העיצוב ב-Polin (מסחרי, לא כלול). כרגע נופלים ל-Rubik מ-Google Fonts. להוסיף את קבצי Polin דרך `next/font/local` ב-`app/layout.tsx`.
-- **קישורים**: רוב ה-href הם `#`, מסומנים ב-TODO.
+- **קישורים**: רוב ה-href הם `#`, מסומנים ב-TODO (כולל טופס הגשת המועמדות, הוראת קבע ובדיקת התאמת מעסיק).
+- **פרטי קשר בעמוד התודה**: המייל והטלפון (`03-1234567`) לקוחים מהעיצוב, צריך לאשר אותם.
 - **ניוזלטר**: `components/NewsletterForm.tsx` מציג הודעת תודה אבל עדיין לא שולח לשום ספק דיוור.
 - העיצוב הוא דסקטופ בלבד (1440). מתחת לזה הלייאאוט מתקפל כדי להישאר שמיש, אבל זה לא מבוסס עיצוב.
 

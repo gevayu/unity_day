@@ -1,0 +1,106 @@
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 44px;
+  width: 100%;
+  max-width: 1320px;
+  color: #fff;
+  text-align: center;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  width: 608px;
+  max-width: 100%;
+  font-size: 70px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.heroBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right edge */
+  gap: 16px;
+  width: 646px;
+  max-width: 100%;
+}
+
+.heroText {
+  width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.quote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.quote p {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+/* the design box is 34px tall, the glyph's line box is 48px */
+.quoteMark {
+  display: flex;
+  flex-direction: column;
+  height: 34px;
+  font-family: var(--font-outfit), sans-serif;
+  font-size: 48px;
+  font-weight: 900;
+  line-height: 48px;
+  color: #d68800;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    height: auto;
+    padding: 64px 16px;
+  }
+
+  .heroTitle {
+    font-size: 44px;
+  }
+
+  .quote p {
+    font-size: 20px;
+    white-space: normal;
+    text-align: right;
+  }
+}

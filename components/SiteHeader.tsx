@@ -41,7 +41,7 @@ export default function SiteHeader() {
       <div className={styles.navbar}>
         <div className={styles.primary}>
           <Link href="/" className={styles.brand} aria-label="יום האחדות, לדף הבית">
-            <Image src="/gallery/logo-mark.svg" alt="" width={124.624} height={60.0005} priority />
+            <Image src="/site/logo-mark.svg" alt="" width={124.624} height={60.0005} priority />
             <span className={styles.brandText}>
               <span className={styles.brandTitle}>יום האחדות</span>
               <span className={styles.brandSub}>לזכר שלושת הנערים</span>
@@ -56,7 +56,7 @@ export default function SiteHeader() {
                     {item.label}
                     {item.hasMenu && (
                       <Image
-                        src="/gallery/icon-chevron-down.svg"
+                        src="/site/icon-chevron-down.svg"
                         alt=""
                         width={14.5358}
                         height={16}
@@ -72,7 +72,7 @@ export default function SiteHeader() {
 
         <div className={styles.actions}>
           <a href="#" className={styles.lang} lang="en" aria-label="Switch to English">
-            <Image src="/gallery/icon-globe.svg" alt="" width={14} height={14} aria-hidden="true" />
+            <Image src="/site/icon-globe.svg" alt="" width={14} height={14} aria-hidden="true" />
             <span dir="ltr">EN / עב</span>
           </a>
           <a href="#" className={styles.donate}>

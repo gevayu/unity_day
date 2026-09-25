@@ -39,17 +39,24 @@ const COLUMNS: Column[] = [
 ];
 
 const SOCIAL = [
-  { label: "YouTube", icon: "/gallery/icon-youtube.svg", href: "#" },
-  { label: "Instagram", icon: "/gallery/icon-instagram.svg", href: "#" },
-  { label: "Facebook", icon: "/gallery/icon-facebook.svg", href: "#" },
+  { label: "YouTube", icon: "/site/icon-youtube.svg", href: "#" },
+  { label: "Instagram", icon: "/site/icon-instagram.svg", href: "#" },
+  { label: "Facebook", icon: "/site/icon-facebook.svg", href: "#" },
 ];
 
 const LEGAL = ["תקנון האתר", "מדיניות פרטיות", "הצהרת נגישות"];
 
+// Pages that exist so far. Everything else is still a "#" placeholder.
+const HREFS: Record<string, string> = {
+  "גלריית תמונות ווידאו": "/gallery",
+  "הגשת מועמדות": "/prize/nominations",
+  "פרס ירושלים לאחדות": "/prize/nominations",
+};
+
 function Divider() {
   return (
     <div className={styles.divider} aria-hidden="true">
-      <Image src="/gallery/divider-vertical.svg" alt="" width={176} height={1} />
+      <Image src="/site/divider-vertical.svg" alt="" width={176} height={1} />
     </div>
   );
 }
@@ -66,8 +73,7 @@ export default function SiteFooter() {
             <ul className={styles.columnLinks}>
               {col.links.map((link) => (
                 <li key={link}>
-                  {/* TODO: real hrefs */}
-                  <a href="#">{link}</a>
+                  <a href={HREFS[link] ?? "#"}>{link}</a>
                 </li>
               ))}
             </ul>
@@ -80,7 +86,7 @@ export default function SiteFooter() {
           <section className={styles.newsletter} aria-labelledby="footer-newsletter">
             <div className={styles.newsletterHead}>
               <div className={styles.logoCard}>
-                <Image src="/gallery/logo-footer.svg" alt="יום האחדות, לזכר שלושת הנערים" width={100} height={80} />
+                <Image src="/site/logo-footer.svg" alt="יום האחדות, לזכר שלושת הנערים" width={100} height={80} />
               </div>
               <div className={styles.blockText}>
                 <h2 id="footer-newsletter" className={styles.blockTitle}>
@@ -126,7 +132,7 @@ export default function SiteFooter() {
           <div className={styles.spacer} aria-hidden="true" />
 
           <div className={styles.illustration} aria-hidden="true">
-            <Image src="/gallery/illustration-people.svg" alt="" width={461.263} height={155.644} />
+            <Image src="/site/illustration-people.svg" alt="" width={461.263} height={155.644} />
           </div>
         </div>
 

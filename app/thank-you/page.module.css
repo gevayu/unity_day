@@ -1,0 +1,605 @@
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  object-position: 50% 64%;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 771px;
+  max-width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.heroLead {
+  width: 600px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- where the money goes ---------- */
+.money {
+  position: relative;
+  padding: 100px var(--gutter);
+  overflow: hidden;
+  background: #fff;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 44px;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.heartHand {
+  position: absolute;
+  left: calc(50% - 737px);
+  top: 53px;
+  width: 281px;
+  height: 197.44px;
+}
+
+.heartHand img {
+  position: absolute;
+}
+
+.heartHand img:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.heartHand img:nth-child(2) {
+  left: 6.298px;
+  top: 0.444px;
+}
+
+.heartHand img:nth-child(3) {
+  left: 7.037px;
+  top: 1.208px;
+}
+
+.moneyIntro {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 622px;
+  max-width: 100%;
+  color: var(--ink);
+  text-align: right;
+}
+
+.moneyTitle {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.moneyLead {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+.splitBar {
+  display: flex;
+  width: 100%;
+  height: 118px;
+  overflow: hidden;
+  border-radius: 100px;
+  background: var(--ink);
+}
+
+.segMinor {
+  display: flex;
+  flex: 0 0 106px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+}
+
+.segMajor {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  justify-content: center;
+  gap: 8px;
+  padding: 0 34px;
+  border-radius: 100px;
+  background: #f9c879;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.segMajorNum {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.segMajorCap {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.miniCards {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: 100%;
+}
+
+.miniCard {
+  display: flex;
+  flex: 1 1 0;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 26px 28px;
+  overflow: hidden;
+  border: 2px solid;
+  border-radius: var(--r-card);
+  background: #fff;
+  color: var(--ink);
+}
+
+.miniCardGold {
+  border-color: #f9c879;
+}
+
+.miniCardDark {
+  border-color: var(--ink);
+}
+
+.miniMark {
+  flex: none;
+  width: 16px;
+  height: 44px;
+  border-radius: 100px;
+}
+
+.miniCardGold .miniMark {
+  background: #fab612;
+}
+
+.miniCardDark .miniMark {
+  background: var(--ink);
+}
+
+.miniText {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 8px;
+  text-align: right;
+}
+
+.miniText h3 {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.miniText p {
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  opacity: 0.72;
+}
+
+/* ---------- two things that help ---------- */
+.help {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: var(--gutter);
+  background: #fff;
+}
+
+.helpIntro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.helpTitle {
+  font-size: 46px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.helpLead {
+  width: 510px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.55;
+  opacity: 0.8;
+}
+
+.helpBody {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.helpGrid {
+  display: flex;
+  align-items: stretch;
+  gap: 24px;
+}
+
+.helpCard {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 16px;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  color: var(--ink);
+  text-align: right;
+}
+
+.helpCardGold {
+  background: #ffd082;
+}
+
+.helpCardBlue {
+  background: #afcae8;
+}
+
+.chip {
+  width: 70px;
+  height: 70px;
+  border: 4px solid #fff;
+  border-radius: 18px;
+  background: #b6d88b;
+}
+
+.kicker {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  opacity: 0.72;
+}
+
+.helpCardTitle {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.helpCardText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  opacity: 0.92;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 26px;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+  transition: transform 0.16s ease;
+}
+
+.cta:hover {
+  transform: translateY(-2px);
+}
+
+.share {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: var(--ink);
+  color: #fff;
+}
+
+.shareText {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: right;
+}
+
+.shareKicker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: normal;
+  color: #b6d88b;
+}
+
+.shareTitle {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.18;
+}
+
+.shareLead {
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.55;
+  opacity: 0.7;
+}
+
+.shareBox {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.shareMessage {
+  width: 100%;
+  padding: 22px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.6;
+  text-align: right;
+}
+
+.shareLinks {
+  display: flex;
+  gap: 12px;
+}
+
+.shareLink {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, 0.1);
+  font-size: 14.5px;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+  transition: background-color 0.16s ease;
+}
+
+.shareLink:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* ---------- something wrong ---------- */
+.contact {
+  display: flex;
+  justify-content: center;
+  padding: 100px var(--gutter);
+  background: #fff;
+}
+
+.contactCard {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1320px;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: #e7f6fd;
+  color: var(--ink);
+}
+
+.contactText {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: right;
+}
+
+.contactTitle {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.contactLead {
+  font-size: 16.5px;
+  font-weight: 500;
+  line-height: 1.65;
+  opacity: 0.85;
+}
+
+.contactNote {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(6, 43, 79, 0.7);
+}
+
+.contactNote img {
+  opacity: 0.7;
+}
+
+.contactRows {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+  transition: box-shadow 0.16s ease;
+}
+
+.contactRow:hover {
+  box-shadow: 0 6px 20px -12px rgba(7, 23, 34, 0.35);
+}
+
+.contactIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 16px;
+  background: #afcae8;
+}
+
+.contactValue {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.contactLabel {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.55;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1280px) {
+  .heartHand {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    padding: 56px 16px;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .money,
+  .contact {
+    padding: 56px 16px;
+  }
+
+  .help {
+    padding: 40px 16px;
+  }
+
+  .moneyTitle,
+  .helpTitle {
+    font-size: 34px;
+  }
+
+  .helpTitle {
+    white-space: normal;
+  }
+
+  .segMajor {
+    padding: 0 20px;
+  }
+
+  .segMajorNum {
+    font-size: 32px;
+  }
+
+  .segMinor {
+    flex-basis: 72px;
+  }
+
+  .miniCards,
+  .helpGrid,
+  .share,
+  .contactCard {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contactTitle {
+    font-size: 30px;
+    white-space: normal;
+  }
+
+  .shareLinks {
+    flex-wrap: wrap;
+  }
+}
