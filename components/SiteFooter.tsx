@@ -55,6 +55,7 @@ const HREFS: Record<string, string> = {
   "יום האחדות": "/unity-day",
   "שלושת הנערים": "/memorial",
   "אודות העמותה והחזון": "/about",
+  "אתר ההנצחה": "/memorial",
 };
 
 function Divider() {

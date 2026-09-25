@@ -6,6 +6,7 @@
 
 | נתיב | פריים ב-Figma | node |
 | --- | --- | --- |
+| `/` | HOMEPAGE | `2024:11` |
 | `/gallery` | AWARD WINNERS (גלריה) | `2024:2733` |
 | `/moments` | moments of unity | `2024:3010` |
 | `/prize/committee` | The prize committee | `2024:3296` |
@@ -24,12 +25,13 @@
 
 ```bash
 npm install
-npm run dev        # http://localhost:3000/gallery
+npm run dev        # http://localhost:3000
 npm run build      # בילד פרודקשן
 ```
 
 ### מבנה
-- `app/gallery/page.tsx` - העמוד עצמו (הירו + גלריה). `/` מפנה אליו.
+- `app/page.tsx` - דף הבית. הנתונים שלו (אירועים, סיפורים, זוכה הפרס) ב-`app/_home/data.ts`, וגם הם placeholder מהעיצוב.
+- `app/gallery/page.tsx` - עמוד הגלריה (הירו + גלריה).
 - `app/gallery/GalleryBrowser.tsx` - צ'יפים לסינון לפי שנה וקטגוריה, קרוסלה (חיצים + נקודות) וגריד ה-bento.
 - `app/gallery/data.ts` - רשימת התמונות. **Placeholder**: בעיצוב יש 3 עמודי קרוסלה אבל רק 5 תמונות, אז עמודים 2-3 משתמשים שוב באותן תמונות, והתגיות (שנה/קטגוריה) שרירותיות. להחליף בפיד אמיתי מה-CMS.
 - `components/SiteHeader.tsx`, `components/SiteFooter.tsx` - הדר ופוטר משותפים לכל העמודים. בעמודי התרומה (`/donate`, `/donate/checkout`) הם מוצגים בגרסה מצומצמת: `<SiteHeader minimal />` (סטטוס ולוגו בלבד) ו-`<SiteFooter compact />` (רק הפס התחתון). `components/PillButton.tsx` - כפתור הגלולה.

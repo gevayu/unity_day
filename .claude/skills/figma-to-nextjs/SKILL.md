@@ -5,7 +5,7 @@ description: Pixel-perfect conversion of UNITY DAY Figma frames into pages of th
 
 # Figma → Next.js page (UNITY DAY)
 
-Goal: every page matches its Figma frame at 1440px to within a few px, without horizontal scroll at any width, and goes live on Vercel. This workflow got ten pages to ~99.9% fidelity. Follow it rather than improvising.
+Goal: every page matches its Figma frame at 1440px to within a few px, without horizontal scroll at any width, and goes live on Vercel. This workflow got sixteen pages, homepage included, to ~99.9% fidelity. Follow it rather than improvising.
 
 The Figma MCP's own `figma-design-to-code` guidance still applies. Read `skill://figma/figma-design-to-code/SKILL.md` with `mcp__Figma__get_figma_skill` before the first `get_design_context` call, and pass `skillNames: "resource:figma-design-to-code"`.
 
@@ -46,6 +46,15 @@ The Figma MCP's own `figma-design-to-code` guidance still applies. Read `skill:/
 | 50ebb | /gallery/photo-5.jpg |
 | fab38 | /committee/hero.jpg |
 | 68b29 | /moments/card-2.jpg |
+| 423fe | /winners/hero.jpg |
+| 1608a | /winners/about.jpg |
+| 0ca3f | /winners/story-3.jpg |
+| 702e1 | /memorial/closing-sunset.jpg |
+| 4797a | /thank-you/hero.jpg |
+| 470d5 | /home/journey-unity.jpg |
+| b1a3d | /home/prize-winner.jpg |
+| dbca1 / 5fe4e / cbab6 / a74b9 | /winners/illustration-sunrise / sprout / heart / community.png |
+| 0207e.svg | /winners/divider-line.svg |
 | f124d | /moments/card-3.jpg (same image as /winners/story-4.jpg) |
 | 6e190 | /nominations/wave.png |
 | 308f6.svg | /nominations/icon-arrow-light.svg |

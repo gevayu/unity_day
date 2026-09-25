@@ -28,8 +28,8 @@ export const metadata: Metadata = {
 const ARROW_LIGHT = "/nominations/icon-arrow-light.svg";
 const ARROW_DARK = "/nominations/icon-arrow-dark.svg";
 
+const DONATE_HREF = "/donate";
 // TODO: point these at their pages once they exist.
-const DONATE_HREF = "#";
 const JOURNEY_START_HREF = "#";
 const EVENTS_HREF = "#";
 const JOIN_HREF = "#";
