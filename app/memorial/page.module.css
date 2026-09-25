@@ -1,0 +1,1051 @@
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+  padding: 40px 18px;
+  color: var(--paper);
+  text-align: center;
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25));
+}
+
+.heroTitle {
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.8px;
+}
+
+.heroNames {
+  width: 457px;
+  max-width: 100%;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #fff;
+}
+
+.heroLead {
+  width: 561px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- intro ---------- */
+.intro {
+  position: relative;
+  padding: 100px var(--gutter) 140px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* tilted green card behind the whole panel */
+.introBlob {
+  position: absolute;
+  left: max(34.68px, calc(50% - 685.32px));
+  top: 50.42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(1382.32px, calc(100% - 57.36px));
+  height: 797.752px;
+}
+
+.introBlob::before {
+  content: "";
+  flex: none;
+  width: calc(100% - 51.47px);
+  height: 686.759px;
+  border-radius: 114.142px;
+  background: #b6d88b;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  /* same order Figma applies: rotate, then flip, then skew */
+  transform: rotate(175.12deg) scale(1, -1) skewX(-0.18deg);
+}
+
+.introCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-left: 32px;
+  border-radius: 64px;
+  background: #f1f7fc;
+}
+
+/* Only the outer (right) corners are clipped. Clipping the inner corners too
+   leaves a faint arc where the photo meets its fade (the browser anti-aliases
+   the photo and the fade separately), so those two are painted over below. */
+.introPhoto {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 1px;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 0 64px 64px 0;
+}
+
+.introPhoto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 64px;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(241, 247, 252, 0) 63.5px, #f1f7fc 64.5px) top left / 64px 64px
+      no-repeat,
+    radial-gradient(circle at 100% 0, rgba(241, 247, 252, 0) 63.5px, #f1f7fc 64.5px) bottom left / 64px 64px
+      no-repeat;
+  pointer-events: none;
+}
+
+/* the design shows this photo mirrored */
+.introPhoto img {
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+/* fades the photo into the panel on its left edge. Figma also sets a 3px
+   background blur on this layer, but its render shows no visible blur (Figma
+   scales it by the fill's alpha), and backdrop-filter leaves a seam on the
+   rounded corners, so it's left out. */
+.introPhoto::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(297px, 39.866%); /* 297px of 745 at 1440 */
+  background: linear-gradient(to left, rgba(241, 247, 252, 0) 4.6386%, #f1f7fc 87.545%);
+}
+
+.introText {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  width: 511px;
+  height: 636px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.introTitle {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.introBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- three boys ---------- */
+.boys {
+  padding: 100px var(--gutter) 50px;
+  background: #fff;
+}
+
+.boysInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.boysHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.boysIntro {
+  display: flex;
+  flex: 0 1 635px;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+  color: var(--ink);
+  text-align: center;
+}
+
+.boysTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.boysText {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.heart {
+  flex: 0 1 560.958px;
+  min-width: 0;
+}
+
+.heart img {
+  width: 100%;
+  height: auto;
+}
+
+.boysPhotos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.portraits {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  margin-bottom: -40px;
+}
+
+.portrait {
+  flex: 0 1 429px;
+  min-width: 0;
+  padding: 24px;
+}
+
+.portraitFrame {
+  position: relative;
+  height: 480px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* the coloured stroke sits on top of the photo, as in Figma */
+.portraitFrame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 0 solid;
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.portraitGreen::after {
+  border-color: #b6d88b;
+  border-bottom-width: 8px;
+  border-left-width: 8px;
+}
+
+.portraitBlue::after {
+  border-color: #8bb6e1;
+  border-width: 8px;
+}
+
+.portraitYellow::after {
+  border-color: #ffd082;
+  border-top-width: 8px;
+  border-right-width: 8px;
+}
+
+/* zoomed crops, positioned as in Figma (exact at 1440 wide) */
+.cropGilad,
+.cropEyal,
+.cropGiladCard,
+.cropEyalCard {
+  position: absolute;
+  max-width: none;
+  height: auto;
+}
+
+.cropGilad {
+  left: -99.06%;
+  top: -1.64%;
+  width: 276.06%;
+}
+
+.cropEyal {
+  left: -7.79%;
+  top: -7.18%;
+  width: 115.62%;
+}
+
+.cropGiladCard {
+  left: -37.84%;
+  top: -3.44%;
+  width: 162.28%;
+}
+
+.cropEyalCard {
+  left: 0.05%;
+  top: -32.97%;
+  width: 100%;
+}
+
+.cropCover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.boysQuote {
+  position: relative;
+  max-width: 100%;
+  padding: 40px 48px;
+  border: 8px solid #dcedfa;
+  border-radius: var(--r-card);
+  background: #f1f7fc;
+  filter: drop-shadow(0 8px 8px rgba(0, 0, 0, 0.1));
+}
+
+.boysQuote p {
+  width: 695px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- wave bands ---------- */
+.wave {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  padding: 24px var(--gutter);
+  overflow: hidden;
+  background: #fff;
+}
+
+.waveGreen {
+  padding-block: 50px;
+}
+
+.waveBg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: none;
+  transform: translate(-50%, -50%);
+}
+
+.waveContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.waveTitle {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.waveText {
+  width: 876px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.waveLead {
+  width: 764px;
+  max-width: 100%;
+  margin-block: 60px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- eighteen days ---------- */
+.days {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 120px var(--gutter);
+  overflow: hidden;
+  background: #fff;
+}
+
+.daysMedia {
+  position: relative;
+  flex: 0 1 690px;
+  min-width: 0;
+}
+
+/* tilted yellow card behind the photo; sized off the photo so it follows it
+   below 1440 (exact Figma geometry at 1440) */
+.daysBlob {
+  position: absolute;
+  left: -24px;
+  top: -36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% + 44.229px);
+  height: calc(100% + 78.455px);
+}
+
+.daysBlob::before {
+  content: "";
+  flex: none;
+  width: calc(100% - 45.462px);
+  height: calc(100% - 76.618px);
+  border-radius: 15.185px;
+  background: #ffd082;
+  box-shadow: 0 56.943px 37.962px -56.943px rgba(31, 32, 34, 0.32);
+  transform: rotate(-173.36deg) scale(1, -1) skewX(-0.18deg);
+}
+
+.daysRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.daysText {
+  flex: 0 1 498px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+  text-align: center;
+}
+
+.daysPhoto {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+/* the design stretches this crop vertically; copied as is */
+.daysPhoto img {
+  position: absolute;
+  left: 0;
+  top: -41.58%;
+  width: 100%;
+  height: 141.7%;
+  max-width: none;
+}
+
+/* ---------- three lives ---------- */
+.lives {
+  padding: 100px var(--gutter);
+  background: #fff;
+}
+
+.livesInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.livesHead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.livesTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.livesLead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 467px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(7, 23, 34, 0.8);
+}
+
+.people {
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  width: 100%;
+}
+
+.person {
+  display: flex;
+  align-items: flex-start;
+  align-self: flex-start; /* RTL: right */
+  gap: 32px;
+  width: 1000px;
+  max-width: 100%;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 64px;
+}
+
+.person.green {
+  align-self: flex-end; /* RTL: left */
+}
+
+.orange {
+  background: #f5a827;
+}
+
+.green {
+  background: #89b254;
+}
+
+.blue {
+  background: #4783bf;
+}
+
+.personPhoto {
+  position: relative;
+  flex: 0 1 476px;
+  min-width: 0;
+  height: 350px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.personBody {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 1px;
+  height: 350px;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.orange .personBody {
+  background: #ffd082;
+}
+
+.green .personBody {
+  background: #b6d88b;
+}
+
+.blue .personBody {
+  background: #8bb6e1;
+}
+
+.personText {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.personName {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.personBio {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.personLink {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 8px 28px;
+  border-radius: var(--r-pill);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--ink);
+  white-space: nowrap;
+  transition: transform 0.16s ease;
+}
+
+.personLink:hover {
+  transform: translateY(-2px);
+}
+
+.orange .personLink {
+  border: 1px solid #ffb636;
+  background: #fff6e5;
+}
+
+.green .personLink {
+  background: #f4f9eb;
+}
+
+.blue .personLink {
+  background: #e7f6fd;
+}
+
+/* ---------- closing ---------- */
+.closing {
+  position: relative;
+  padding: 100px var(--gutter) 140px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.closingBlob {
+  position: absolute;
+  left: max(28.6px, calc(50% - 691.4px));
+  top: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(1386.665px, calc(100% - 53.335px));
+  height: 778.783px;
+}
+
+.closingBlob::before {
+  content: "";
+  flex: none;
+  width: calc(100% - 49.847px);
+  height: 667.216px;
+  border-radius: 114.142px;
+  background: #ffd082;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  transform: rotate(4.88deg) skewX(0.18deg);
+}
+
+.closingRow {
+  position: relative;
+  display: flex;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.closingPanel {
+  flex: none;
+  width: 570px;
+  padding: 106px 35px;
+  overflow: hidden;
+  border-radius: 0 64px 64px 0;
+  background: #f1f7fc;
+}
+
+.closingContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 500px;
+  max-width: 100%;
+  color: var(--ink);
+}
+
+.closingHead {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* RTL: right */
+  gap: 32px;
+  width: 100%;
+}
+
+.closingTitle {
+  width: 237px;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  text-align: right;
+}
+
+/* the SVG is 1.92px wider than its 139.97px frame and overhangs both sides */
+.candle {
+  flex: none;
+  margin-inline: -0.961px;
+}
+
+.closingBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: justify;
+}
+
+.closingPhoto {
+  position: relative;
+  flex: 1 1 750px;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 64px 0 0 64px;
+}
+
+.closingPhoto img {
+  object-fit: cover;
+}
+
+/* fades the photo into the panel on its right edge (no blur, see .introPhoto::after) */
+.closingPhoto::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(276px, 36.8%); /* 276px of 750 at 1440 */
+  background: linear-gradient(to right, rgba(241, 247, 252, 0) 4.6386%, #f1f7fc 87.545%);
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1280px) {
+  .introText {
+    flex: 0 1 511px;
+    min-width: 0;
+  }
+
+  .introTitle {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .introText {
+    flex: 1 1 0;
+  }
+
+  .portraitFrame {
+    height: 400px;
+  }
+
+  .closingPanel {
+    flex: 0 1 570px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 520px;
+    padding: 64px 16px;
+  }
+
+  .heroTitle {
+    font-size: 64px;
+  }
+
+  .heroNames {
+    font-size: 22px;
+  }
+
+  .introBlob,
+  .daysBlob,
+  .closingBlob {
+    display: none;
+  }
+
+  .intro,
+  .closing {
+    padding: 56px 16px;
+  }
+
+  .introCard {
+    flex-direction: column;
+    gap: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .introPhoto {
+    flex: none;
+    width: 100%;
+    height: 360px;
+    border-radius: 0;
+  }
+
+  .introPhoto::before {
+    display: none;
+  }
+
+  .introPhoto::after {
+    top: auto;
+    right: 0;
+    width: auto;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(241, 247, 252, 0) 4.6386%, #f1f7fc 87.545%);
+  }
+
+  .introText {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 8px 24px 40px;
+  }
+
+  .introTitle,
+  .boysTitle,
+  .livesTitle {
+    font-size: 34px;
+  }
+
+  .boys,
+  .lives {
+    padding: 56px 16px;
+  }
+
+  .boysInner,
+  .livesInner {
+    gap: 48px;
+  }
+
+  .boysHead {
+    flex-direction: column;
+  }
+
+  .boysIntro,
+  .heart {
+    flex: none;
+    width: 100%;
+    max-width: 561px;
+  }
+
+  .portraits {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -24px;
+  }
+
+  .portrait {
+    flex: none;
+    width: 100%;
+    max-width: 429px;
+    padding: 12px 0;
+  }
+
+  .portraitFrame {
+    height: 480px;
+  }
+
+  .boysQuote {
+    padding: 28px 24px;
+  }
+
+  .wave {
+    padding-inline: 16px;
+  }
+
+  .waveTitle {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .waveLead {
+    margin-block: 0;
+    font-size: 17px;
+  }
+
+  .days {
+    padding: 56px 16px;
+  }
+
+  .daysRow {
+    flex-direction: column;
+  }
+
+  .daysText,
+  .daysMedia {
+    flex: none;
+    width: 100%;
+  }
+
+  .daysPhoto {
+    flex: none;
+    width: 100%;
+    height: 340px;
+  }
+
+  .daysPhoto img {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 100%;
+  }
+
+  .livesHead {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .livesTitle {
+    white-space: normal;
+  }
+
+  .people {
+    gap: 32px;
+  }
+
+  .closingRow {
+    flex-direction: column-reverse;
+  }
+
+  .closingPhoto {
+    flex: none;
+    height: 360px;
+    border-radius: 64px 64px 0 0;
+  }
+
+  .closingPhoto::after {
+    top: auto;
+    left: 0;
+    width: auto;
+    height: 140px;
+    background: linear-gradient(to bottom, rgba(241, 247, 252, 0) 4.6386%, #f1f7fc 87.545%);
+  }
+
+  .closingPanel {
+    flex: none;
+    width: 100%;
+    padding: 24px 24px 48px;
+    border-radius: 0 0 64px 64px;
+  }
+
+  .closingContent {
+    width: 100%;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroTitle {
+    font-size: 56px;
+  }
+
+  .introCard,
+  .closingPhoto {
+    border-radius: 40px 40px 0 0;
+  }
+
+  .introCard {
+    border-radius: 40px;
+  }
+
+  .closingPanel {
+    border-radius: 0 0 40px 40px;
+  }
+
+  /* photo on top in every card */
+  .person {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    gap: 16px;
+    padding: 16px;
+    border-radius: 40px;
+  }
+
+  .person.green {
+    flex-direction: column;
+  }
+
+  .personPhoto {
+    flex: none;
+    width: 100%;
+    height: 300px;
+  }
+
+  .personBody {
+    flex: none;
+    height: auto;
+  }
+
+  .personName {
+    font-size: 24px;
+  }
+
+  .closingTitle {
+    width: auto;
+    font-size: 40px;
+  }
+
+  /* justified Hebrew opens wide gaps in a narrow column */
+  .closingBody {
+    text-align: start;
+  }
+
+  .candle {
+    width: 100px;
+    height: auto;
+  }
+}
