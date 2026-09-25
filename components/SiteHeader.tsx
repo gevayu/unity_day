@@ -18,7 +18,12 @@ const NAV_LINKS = [
   { label: "צור קשר", href: "/contact", hasMenu: false },
 ];
 
-export default function SiteHeader() {
+type SiteHeaderProps = {
+  /** Distraction-free variant (checkout): status bar and logo only. */
+  minimal?: boolean;
+};
+
+export default function SiteHeader({ minimal = false }: SiteHeaderProps) {
   return (
     <header>
       <div className={styles.topbar}>
@@ -48,38 +53,46 @@ export default function SiteHeader() {
             </span>
           </Link>
 
-          <nav aria-label="ניווט ראשי">
-            <ul className={styles.navList}>
-              {NAV_LINKS.map((item) => (
-                <li key={item.label}>
-                  {/* "#" placeholders stay plain anchors so Next doesn't prefetch them */}
-                  <Link href={item.href} prefetch={item.href.startsWith("/") ? undefined : false} className={styles.navLink}>
-                    {item.label}
-                    {item.hasMenu && (
-                      <Image
-                        src="/site/icon-chevron-down.svg"
-                        alt=""
-                        width={14.5358}
-                        height={16}
-                        aria-hidden="true"
-                      />
-                    )}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+          {!minimal && (
+            <nav aria-label="ניווט ראשי">
+              <ul className={styles.navList}>
+                {NAV_LINKS.map((item) => (
+                  <li key={item.label}>
+                    {/* "#" placeholders stay plain anchors so Next doesn't prefetch them */}
+                    <Link
+                      href={item.href}
+                      prefetch={item.href.startsWith("/") ? undefined : false}
+                      className={styles.navLink}
+                    >
+                      {item.label}
+                      {item.hasMenu && (
+                        <Image
+                          src="/site/icon-chevron-down.svg"
+                          alt=""
+                          width={14.5358}
+                          height={16}
+                          aria-hidden="true"
+                        />
+                      )}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          )}
         </div>
 
-        <div className={styles.actions}>
-          <a href="#" className={styles.lang} lang="en" aria-label="Switch to English">
-            <Image src="/site/icon-globe.svg" alt="" width={14} height={14} aria-hidden="true" />
-            <span dir="ltr">EN / עב</span>
-          </a>
-          <a href="#" className={styles.donate}>
-            תרומה
-          </a>
-        </div>
+        {!minimal && (
+          <div className={styles.actions}>
+            <a href="#" className={styles.lang} lang="en" aria-label="Switch to English">
+              <Image src="/site/icon-globe.svg" alt="" width={14} height={14} aria-hidden="true" />
+              <span dir="ltr">EN / עב</span>
+            </a>
+            <a href="#" className={styles.donate}>
+              תרומה
+            </a>
+          </div>
+        )}
       </div>
     </header>
   );

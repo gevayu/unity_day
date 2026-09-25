@@ -1,18 +1,3 @@
-/* ---------- site chrome, checkout variant ----------
-   The Figma frame ("Checkout Page") shows a stripped header (status bar + logo,
-   no nav, no language switch, no donate button) and only the dark bottom band of
-   the footer. SiteHeader/SiteFooter have no variant for that yet, so the extra
-   parts are hidden here by structure rather than by their hashed class names.
-   TODO: replace with a `variant` prop on the shared components. */
-.minimalHeader nav,
-.minimalHeader div:has(> a[lang="en"]) {
-  display: none;
-}
-
-.compactFooter footer > div:has(> nav) {
-  display: none;
-}
-
 /* ---------- hero ---------- */
 .hero {
   position: relative;

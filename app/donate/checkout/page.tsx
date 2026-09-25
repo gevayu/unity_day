@@ -15,10 +15,8 @@ export default function CheckoutPage() {
   return (
     <>
       {/* The checkout frame is distraction-free: the header keeps only the status
-          bar and the logo, and the footer drops its sitemap (see page.module.css). */}
-      <div className={styles.minimalHeader}>
-        <SiteHeader />
-      </div>
+          bar and the logo, and the footer drops its sitemap. */}
+      <SiteHeader minimal />
 
       <main>
         <section className={styles.hero}>
@@ -39,9 +37,7 @@ export default function CheckoutPage() {
         </section>
       </main>
 
-      <div className={styles.compactFooter}>
-        <SiteFooter />
-      </div>
+      <SiteFooter compact />
     </>
   );
 }

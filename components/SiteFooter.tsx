@@ -64,25 +64,32 @@ function Divider() {
   );
 }
 
-export default function SiteFooter() {
+type SiteFooterProps = {
+  /** Checkout variant: only the dark bottom band, no sitemap. */
+  compact?: boolean;
+};
+
+export default function SiteFooter({ compact = false }: SiteFooterProps) {
   return (
     <footer className={styles.footer}>
-      <div className={styles.sitemap}>
-        {COLUMNS.map((col) => (
-          <nav key={col.title} className={styles.column} aria-label={col.title}>
-            <h2 className={styles.columnTitle} style={col.accent ? { color: col.accent } : undefined}>
-              {col.title}
-            </h2>
-            <ul className={styles.columnLinks}>
-              {col.links.map((link) => (
-                <li key={link}>
-                  <a href={HREFS[link] ?? "#"}>{link}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-        ))}
-      </div>
+      {!compact && (
+        <div className={styles.sitemap}>
+          {COLUMNS.map((col) => (
+            <nav key={col.title} className={styles.column} aria-label={col.title}>
+              <h2 className={styles.columnTitle} style={col.accent ? { color: col.accent } : undefined}>
+                {col.title}
+              </h2>
+              <ul className={styles.columnLinks}>
+                {col.links.map((link) => (
+                  <li key={link}>
+                    <a href={HREFS[link] ?? "#"}>{link}</a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          ))}
+        </div>
+      )}
 
       <div className={styles.bottom}>
         <div className={styles.blocks}>
