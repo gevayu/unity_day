@@ -14,9 +14,9 @@ export const metadata: Metadata = {
     "פרס ירושלים לאחדות ישראל מוענק מדי שנה לאנשים, ליוזמות ולארגונים שהופכים את רעיון האחדות למעשה שמשנה מציאות.",
 };
 
-// TODO: point these at their pages once they exist.
-const ABOUT_PRIZE_HREF = "#";
-const MORE_STORIES_HREF = "#";
+const ABOUT_PRIZE_HREF = "/prize/nominations";
+const MORE_STORIES_HREF = "/prize/winner-stories";
+// TODO: point at the join page once it exists.
 const JOIN_HREF = "#";
 
 type Story = {

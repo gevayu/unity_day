@@ -41,7 +41,7 @@ const DUMMY = {
     "ברית הנגב וההר מפגישה בין תושבי הנגב המערבי לתושבי גוש עציון.",
     "שתי קהילות שמגיעות ממקומות שונים ולעיתים גם מעמדות שונות, ובוחרות לבנות אמון דרך מפגשי עומק, סיורים ויוזמות בשטח.",
   ],
-  href: "#",
+  href: "/prize/winners/negev-mountain-alliance",
 } as const;
 
 export const STORIES: WinnerStory[] = [

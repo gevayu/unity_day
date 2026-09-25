@@ -14,6 +14,7 @@ The Figma MCP's own `figma-design-to-code` guidance still applies. Read `skill:/
 - Next.js 16 App Router, TypeScript, CSS Modules, **no Tailwind**. `<html lang="he" dir="rtl">`.
 - Shared pieces:
   - `components/SiteHeader.tsx` and `components/SiteFooter.tsx`: the header is the top 148px of every frame, the footer the last 604px ("Frame 2147227530"). Never re-implement them.
+    - Some frames (donation, checkout) use cut-down chrome: a header with only the status bar and logo, and a footer that is only the 337px dark bottom band. Use `<SiteHeader minimal />` and `<SiteFooter compact />`. If the page comes out ~267px taller than the frame, this is why.
   - `components/PillButton.tsx`: the 50px CTA pill, variants `dark`/`light`, optional arrow icon that is mirrored automatically.
   - `app/globals.css`: tokens `--ink #071722`, `--r-card 32px`, `--r-pill`, `--gutter 60px`, `--sky`, `--gradient-2`, and so on.
 - Fonts: Polin (the design font) is commercial and not bundled, so Rubik stands in. Text wrapping differences from that are the only accepted deviation.
@@ -44,6 +45,8 @@ The Figma MCP's own `figma-design-to-code` guidance still applies. Read `skill:/
 | 2c604 | /gallery/photo-4.jpg |
 | 50ebb | /gallery/photo-5.jpg |
 | fab38 | /committee/hero.jpg |
+| 68b29 | /moments/card-2.jpg |
+| f124d | /moments/card-3.jpg (same image as /winners/story-4.jpg) |
 | 6e190 | /nominations/wave.png |
 | 308f6.svg | /nominations/icon-arrow-light.svg |
 | 5c251.svg | /nominations/icon-arrow-dark.svg |
@@ -66,6 +69,8 @@ The Figma MCP's own `figma-design-to-code` guidance still applies. Read `skill:/
 - If a fixed-width text block (`width: 700px; max-width: 100%`) sits inside a shrink-to-fit flex column, it overflows on mobile. Give the column `max-width: 100%`.
 - Figma strokes are sometimes inside the box and sometimes part of the layout. Check the chip/button height in the metadata: if it's 36 with 8px padding and 20px text, the 1px border sits inside, so use padding 7px.
 - When text makes rows shrink (Rubik is narrower than Polin), pin the row to the design's height with `min-height` (for example category cards 202/189).
+- Figma rounds each line box to whole pixels (54px text → 65px lines, 16px → 22px, 14px → 20px). On long text-heavy pages the browser's fractional `line-height: 1.2/1.4` adds up to several px; if the height drifts, set those line heights in px at 1440 (and go back to relative ones in the mobile media query). This took /about from +5px to exact.
+- A non-Polin font that the frame uses for specific elements (for example Heebo for figures on /donate) is loaded per page with `next/font/google` in a `fonts.ts` next to the page, not globally.
 
 **Images**
 - Plain photos: `next/image` with `fill` and `object-fit: cover`.

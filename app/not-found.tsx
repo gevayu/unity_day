@@ -21,7 +21,7 @@ type Tile = { label: string; icon: string; href: string; tone: "blue" | "yellow"
 const TILES: Tile[] = [
   { label: "דף הבית", icon: "/not-found/icon-home.svg", href: "/", tone: "blue" },
   // TODO: no "about the prize" page yet.
-  { label: "על הפרס", icon: "/not-found/icon-prize.svg", href: "#", tone: "green" },
+  { label: "על הפרס", icon: "/not-found/icon-prize.svg", href: "/prize/nominations", tone: "green" },
   { label: "הגשת מועמדות", icon: "/not-found/icon-nominations.svg", href: "/prize/nominations", tone: "yellow" },
   // TODO: no Unity Day page yet.
   { label: "יום האחדות", icon: "/not-found/icon-unity-day.svg", href: "/unity-day", tone: "blue" },
