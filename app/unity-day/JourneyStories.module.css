@@ -1,0 +1,262 @@
+.stories {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+/* ---------- tabs ---------- */
+.tabs {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.tab {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 206px;
+  padding: 8px 16px;
+  border: 2px solid #ebeef1;
+  border-radius: 100px;
+  background: #fff;
+  font-size: 12px;
+  text-align: start;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.tab:hover {
+  border-color: #d9dee3;
+}
+
+.tabNum {
+  width: 100%;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(6, 43, 79, 0.38);
+}
+
+.tabLabel {
+  width: 100%;
+  font-weight: 500;
+  line-height: 1.4;
+  color: #062b4f;
+  white-space: nowrap;
+}
+
+.tabActive,
+.tabActive:hover {
+  border-color: #d68800;
+  background: var(--journey-memory);
+}
+
+.tabActive .tabNum {
+  color: #062b4f;
+}
+
+/* ---------- story card ---------- */
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 64px;
+  background: #ffd082;
+}
+
+/* two lighter swirls behind the card content, positioned as in Figma */
+.swirlBottom,
+.swirlTop {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+}
+
+.swirlBottom {
+  left: 561px;
+  top: 316px;
+}
+
+.swirlTop {
+  left: -295px;
+  top: -34px;
+}
+
+.photo {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 636px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+/* the Figma crop is cover, shifted a little to the right of centre */
+.photo img {
+  object-fit: cover;
+  object-position: 39.4% 50%;
+}
+
+.text {
+  position: relative;
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  width: 517px;
+  height: 636px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  color: #472d00;
+  text-align: center;
+}
+
+.kicker {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.title {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.body {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.text .cta {
+  color: #472d00;
+}
+
+/* ---------- dots ---------- */
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  border: 0;
+  border-radius: 100px;
+  background: rgba(6, 43, 79, 0.16);
+  transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+/* larger hit area */
+.dot::after {
+  content: "";
+  position: absolute;
+  inset: -8px -4px;
+}
+
+.dotActive {
+  width: 32px;
+  background: #d68800;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1240px) {
+  .tabs {
+    width: 100%;
+  }
+
+  .tab {
+    flex: 1 1 0;
+    width: auto;
+    min-width: 0;
+  }
+
+  .tabLabel {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 1100px) {
+  .text {
+    width: 420px;
+  }
+
+  .title {
+    font-size: 44px;
+  }
+}
+
+@media (max-width: 900px) {
+  .card {
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px;
+    border-radius: 40px;
+  }
+
+  .photo {
+    flex: none;
+    width: 100%;
+    height: 360px;
+  }
+
+  .text {
+    width: 100%;
+    height: auto;
+    gap: 40px;
+    padding-bottom: 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .tabs {
+    gap: 8px;
+    padding-bottom: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .tab {
+    flex: 0 0 170px;
+  }
+
+  .photo {
+    height: 260px;
+  }
+
+  .kicker {
+    font-size: 20px;
+  }
+
+  .title {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+}
