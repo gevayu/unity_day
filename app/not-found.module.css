@@ -1,0 +1,479 @@
+/* ---------- 404 hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 516px;
+  padding: 20px var(--gutter);
+  overflow: hidden; /* the right cloud runs past 1440 */
+  background: #fff;
+}
+
+/* line-art clouds, placed from the page centre as in Figma */
+.cloudHeroRight,
+.cloudHeroLeft,
+.cloudSearch {
+  position: absolute;
+  pointer-events: none;
+}
+
+.cloudHeroRight {
+  left: calc(50% + 348.11px);
+  top: 46.1px;
+}
+
+.cloudHeroLeft {
+  left: calc(50% - 626.89px);
+  top: 362.1px;
+  transform: scaleX(-1);
+}
+
+.heroText {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 697px;
+  max-width: 100%;
+  text-align: center;
+}
+
+.heroHeading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  font-weight: 700;
+}
+
+.code {
+  font-size: min(350px, 40vw);
+  line-height: 1;
+  letter-spacing: -1.8px;
+  color: var(--tile-blue);
+  white-space: nowrap;
+}
+
+.heroTitle {
+  font-size: 50px;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  color: var(--ink);
+}
+
+.heroLead {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: rgba(7, 23, 34, 0.8);
+}
+
+/* ---------- search ---------- */
+.search {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 70px var(--gutter);
+  background: #fff;
+}
+
+.cloudSearch {
+  left: calc(50% + 377.42px);
+  top: 135.41px;
+}
+
+.searchInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 850px;
+  max-width: 100%;
+}
+
+.searchHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  text-align: center;
+}
+
+.searchLead {
+  width: 561px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(7, 23, 34, 0.8);
+}
+
+.searchTitle {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.searchBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 756px;
+  max-width: 100%;
+  padding: 32px;
+  border-radius: 64px;
+  background: var(--tile-blue);
+}
+
+.searchInput {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 56px;
+  padding: 0 34px; /* + 2px border = 36px, as in Figma */
+  border: 2px solid #0e55a7;
+  border-radius: var(--r-card);
+  background: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  outline-offset: 2px;
+}
+
+.searchInput::placeholder {
+  color: rgba(7, 23, 34, 0.5);
+  opacity: 1;
+}
+
+/* the search field's own clear button fights the 36px inset */
+.searchInput::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+/* 56px dark pill ("חיפוש", "קראו עוד"); the arrow sits on the right and points left */
+.darkButton {
+  display: inline-flex;
+  flex: none;
+  align-items: center;
+  gap: 10px;
+  height: 56px;
+  padding: 0 32px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  white-space: nowrap;
+  transition: transform 0.16s ease;
+}
+
+.darkButton:hover {
+  transform: translateY(-2px);
+}
+
+.darkButton img {
+  flex: none;
+}
+
+/* ---------- quick links ---------- */
+.links,
+.news {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px var(--gutter) 60px;
+  background: #fff;
+}
+
+.links {
+  gap: 40px;
+}
+
+.news {
+  gap: 50px;
+}
+
+.sectionTitle {
+  width: 100%;
+  min-height: 65px; /* the design's text box is 65px tall */
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  width: 1000px;
+  max-width: 100%;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 232px;
+  height: 150px;
+  padding: 24px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  transition: transform 0.16s ease;
+}
+
+.tile:hover {
+  transform: translateY(-3px);
+}
+
+.tile img {
+  flex: none;
+}
+
+.blue {
+  background: var(--tile-blue);
+}
+
+.yellow {
+  background: #ffd082;
+}
+
+.green {
+  background: #b6d88b;
+}
+
+.tileLabel {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(7, 23, 34, 0.8);
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ---------- news ---------- */
+.newsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  width: 1202px;
+  max-width: 100%;
+}
+
+.newsCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.newsImage {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 390 / 420;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.newsImage img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* zoomed crop, positioned as in Figma */
+.newsImage .newsCrop {
+  position: absolute;
+  left: -72.24%;
+  top: -0.04%;
+  width: 174.91%;
+  height: auto;
+  max-width: none;
+}
+
+.newsCard:hover .newsImage img {
+  transform: scale(1.03);
+}
+
+.newsTitle {
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: var(--ink);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* ---------- stay connected ---------- */
+.stay {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 100px var(--gutter);
+  background: #fff;
+}
+
+.stayHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1320px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.stayTitle {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.stayLead {
+  width: 350px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.stayActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.outline {
+  border: 1px solid var(--ink);
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1100px) {
+  .cloudSearch {
+    display: none;
+  }
+
+  /* keep the 4 + 3 arrangement: shrink the tiles instead of wrapping */
+  .tiles li {
+    width: calc((100% - 72px) / 4);
+  }
+
+  .tile {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .cloudHeroRight,
+  .cloudHeroLeft {
+    display: none;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 48px 16px 32px;
+  }
+
+  .heroTitle {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .heroLead {
+    font-size: 20px;
+  }
+
+  .search {
+    padding: 48px 16px;
+  }
+
+  .links,
+  .news {
+    gap: 32px;
+    padding: 24px 16px 48px;
+  }
+
+  .sectionTitle {
+    min-height: 0;
+    font-size: 28px;
+  }
+
+  .tiles {
+    gap: 16px;
+  }
+
+  .tiles li {
+    width: calc((100% - 48px) / 4);
+  }
+
+  .tile {
+    padding: 12px;
+  }
+
+  .tileLabel {
+    font-size: 16px;
+    white-space: normal;
+  }
+
+  .stay {
+    gap: 32px;
+    padding: 64px 16px;
+  }
+
+  .stayTitle {
+    font-size: 38px;
+    letter-spacing: -1px;
+  }
+}
+
+@media (max-width: 760px) {
+  .searchTitle {
+    font-size: 26px;
+  }
+
+  .searchBox {
+    gap: 12px;
+    padding: 16px;
+    border-radius: 44px;
+  }
+
+  .searchInput {
+    padding: 0 20px;
+  }
+
+  .searchBox .darkButton {
+    padding: 0 22px;
+  }
+
+  .tiles li {
+    width: calc(50% - 8px);
+  }
+
+  .tile {
+    height: 130px;
+  }
+
+  .newsGrid {
+    grid-template-columns: minmax(0, 390px);
+    justify-content: center;
+    gap: 32px;
+  }
+}
