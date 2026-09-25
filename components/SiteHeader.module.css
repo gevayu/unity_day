@@ -1,0 +1,214 @@
+/* ---------- top status bar ---------- */
+.topbar {
+  background: var(--ink-topbar);
+  padding: 16px var(--gutter);
+}
+
+.statusList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: flex-start; /* RTL: pins to the right edge */
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border: 1px solid #fff;
+  border-radius: var(--r-pill);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #fff;
+  white-space: nowrap;
+  transition: background-color 0.16s ease;
+}
+
+.status:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* first and last pills are fixed-width in the design */
+.statusList li:first-child .status,
+.statusList li:last-child .status {
+  width: 171px;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--dot-idle);
+  flex: none;
+}
+
+.statusCurrent {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink-deep);
+}
+
+.statusCurrent:hover {
+  background: #fff;
+}
+
+.statusCurrent .statusDot {
+  background: var(--dot-live);
+}
+
+/* ---------- main nav ---------- */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 12px var(--gutter);
+  background: #fff;
+}
+
+.primary {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex: none;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 125px;
+  line-height: normal;
+}
+
+.brandTitle {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 0.24px;
+  text-align: right;
+  color: var(--brand-logo);
+}
+
+.brandSub {
+  width: 100%;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.12px;
+  text-align: center;
+  color: var(--text-logo);
+}
+
+.navList {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.navLink:hover {
+  color: var(--brand-blue);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  flex: none;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 1.76px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.donate {
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  background: var(--brand-blue);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease;
+}
+
+.donate:hover {
+  background: var(--ink-deep);
+}
+
+/* The Figma frame is desktop-only (1440). Below that we keep things usable
+   rather than pixel-matched. */
+@media (max-width: 1180px) {
+  .navbar {
+    flex-wrap: wrap;
+    row-gap: 12px;
+  }
+
+  .primary {
+    display: contents;
+  }
+
+  .primary nav {
+    order: 3;
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 640px) {
+  .topbar,
+  .navbar {
+    padding-inline: 16px;
+  }
+
+  .statusList {
+    gap: 8px;
+  }
+
+  .statusList li:first-child .status,
+  .statusList li:last-child .status {
+    width: auto;
+  }
+
+  .actions {
+    gap: 16px;
+  }
+
+  .brandText {
+    display: none;
+  }
+}

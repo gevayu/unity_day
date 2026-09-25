@@ -1,0 +1,250 @@
+.browser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* ---------- filters ---------- */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right edge */
+  gap: 16px;
+}
+
+.filterRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.filterLabel {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 1.4px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 7px 19px;
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.chip:hover {
+  background: rgba(7, 23, 34, 0.06);
+}
+
+.chipActive,
+.chipActive:hover {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+}
+
+.gift {
+  flex: none;
+}
+
+/* ---------- carousel ---------- */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+}
+
+.controls[data-hidden] {
+  visibility: hidden;
+}
+
+.arrows {
+  display: flex;
+  gap: 9.143px;
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 1.143px solid var(--ink-arrow);
+  border-radius: 9999px;
+  transition: transform 0.16s ease;
+}
+
+.arrow:hover:not(:disabled) {
+  transform: scale(1.08);
+}
+
+.arrowDark {
+  background: var(--ink);
+}
+
+.arrowLight {
+  background: #fff;
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  display: flex;
+  align-items: center;
+  padding: 13px 0; /* bigger hit area, same 24x6 pill */
+  border: 0;
+  background: none;
+}
+
+.dot span {
+  display: block;
+  width: 24px;
+  height: 6px;
+  border-radius: 100px;
+  background: var(--dot-inactive);
+  transition: background-color 0.2s ease;
+}
+
+.dot[aria-current] span {
+  background: var(--ink-arrow);
+}
+
+/* ---------- grid ---------- */
+.bento,
+.compact {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+}
+
+/* RTL: the first column is the right-hand one */
+.bento {
+  grid-template-columns: 400px 1fr 1fr;
+  grid-template-rows: 417px 307px 417px;
+  grid-template-areas:
+    "a big big"
+    "b big big"
+    "tile d c";
+}
+
+.compact {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: 417px;
+}
+
+.tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: #eef2f5;
+}
+
+.photo {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.tile:hover .photo {
+  transform: scale(1.03);
+}
+
+.brandTile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--tile-blue);
+}
+
+.bento .brandTile {
+  grid-area: tile;
+}
+
+.empty {
+  padding: 80px 24px;
+  border-radius: var(--r-card);
+  background: #f4f7f9;
+  color: var(--text-muted);
+  font-size: 16px;
+  text-align: center;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1100px) {
+  .toolbar {
+    align-items: flex-start;
+  }
+
+  .gift {
+    display: none;
+  }
+
+  .browser {
+    gap: 48px;
+  }
+
+  .bento {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 460px 320px 320px 320px;
+    grid-template-areas:
+      "big big"
+      "a b"
+      "d c"
+      "tile tile";
+  }
+}
+
+@media (max-width: 640px) {
+  .filterRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .bento {
+    grid-template-columns: 1fr;
+    grid-template-rows: 360px repeat(5, 260px);
+    grid-template-areas: "big" "a" "b" "d" "c" "tile";
+  }
+}

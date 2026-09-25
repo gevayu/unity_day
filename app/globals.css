@@ -1,0 +1,118 @@
+/* UNITY DAY design tokens, taken from the Figma file (UNITY-DAY / AWARD WINNERS). */
+:root {
+  /* ink */
+  --ink: #071722;
+  --ink-deep: #002349;
+  --ink-topbar: #0d2230;
+  --ink-arrow: #052c3d;
+  --text: #1f2933;
+  --text-logo: #1d1e1c;
+  --text-muted: #6b7280;
+  --paper: #fcfcf7;
+
+  /* brand */
+  --brand-blue: #014b98;
+  --brand-logo: #1d4b9b;
+  --tile-blue: #8bb6e1;
+  --sky: #d5f1fd;
+  --journey-memory: #ffb636;
+  --journey-unity: #8abe38;
+  --journey-identity: #43baef;
+
+  /* status dots */
+  --dot-idle: #b8b8c0;
+  --dot-live: #8abe38;
+  --dot-inactive: #c8c8c8;
+
+  /* "gradient 2" in Figma: footer borders and divider */
+  --gradient-2: linear-gradient(
+    90deg,
+    #f85e00 0%,
+    #fe7d05 14%,
+    #fca632 25%,
+    #fed797 35%,
+    #fef5e4 45%,
+    #f4f0d7 56%,
+    #bdedd3 65%,
+    #74ebe5 75%,
+    #3ac7d2 85%,
+    #076d91 100%
+  );
+
+  /* geometry */
+  --r-card: 32px;
+  --r-pill: 1000px;
+  --page-width: 1440px;
+  --gutter: 60px;
+
+  --font: "Polin", var(--font-rubik), "Assistant", system-ui, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+p,
+h1,
+h2,
+h3,
+ul {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: none;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
