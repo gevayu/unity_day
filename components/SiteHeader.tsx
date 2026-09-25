@@ -15,7 +15,7 @@ const NAV_LINKS = [
   { label: "מסע הזהות", href: "#", hasMenu: true },
   { label: "להצטרף", href: "#", hasMenu: true },
   { label: "מדיה", href: "/gallery", hasMenu: true },
-  { label: "צור קשר", href: "#", hasMenu: false },
+  { label: "צור קשר", href: "/contact", hasMenu: false },
 ];
 
 export default function SiteHeader() {
@@ -52,7 +52,8 @@ export default function SiteHeader() {
             <ul className={styles.navList}>
               {NAV_LINKS.map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className={styles.navLink}>
+                  {/* "#" placeholders stay plain anchors so Next doesn't prefetch them */}
+                  <Link href={item.href} prefetch={item.href.startsWith("/") ? undefined : false} className={styles.navLink}>
                     {item.label}
                     {item.hasMenu && (
                       <Image

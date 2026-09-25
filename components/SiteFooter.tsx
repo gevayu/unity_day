@@ -51,6 +51,7 @@ const HREFS: Record<string, string> = {
   "גלריית תמונות ווידאו": "/gallery",
   "הגשת מועמדות": "/prize/nominations",
   "פרס ירושלים לאחדות": "/prize/nominations",
+  "צור קשר": "/contact",
 };
 
 function Divider() {
