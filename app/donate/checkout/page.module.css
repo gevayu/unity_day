@@ -1,0 +1,92 @@
+/* ---------- site chrome, checkout variant ----------
+   The Figma frame ("Checkout Page") shows a stripped header (status bar + logo,
+   no nav, no language switch, no donate button) and only the dark bottom band of
+   the footer. SiteHeader/SiteFooter have no variant for that yet, so the extra
+   parts are hidden here by structure rather than by their hashed class names.
+   TODO: replace with a `variant` prop on the shared components. */
+.minimalHeader nav,
+.minimalHeader div:has(> a[lang="en"]) {
+  display: none;
+}
+
+.compactFooter footer > div:has(> nav) {
+  display: none;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 771px;
+  max-width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+/* Figma marks this line dir="ltr", which throws the full stop to the right;
+   it's rendered as normal RTL here. */
+.heroLead {
+  width: 600px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- checkout ---------- */
+.checkout {
+  display: flex;
+  justify-content: center;
+  padding: 120px var(--gutter);
+  background: #fff;
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 300px;
+    padding: 56px 16px;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .checkout {
+    padding: 56px 16px 80px;
+  }
+}
