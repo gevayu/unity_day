@@ -1,0 +1,260 @@
+.browser {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  width: 100%;
+}
+
+/* ---------- filters ---------- */
+.filters {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right edge */
+  gap: 16px;
+  width: 1200px;
+  max-width: 100%;
+}
+
+/* label centred on the first line of chips (36px), also when they wrap */
+.filterRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 100%;
+}
+
+.filterLabel {
+  flex: none;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 36px;
+  letter-spacing: 1.4px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* 36px tall in Figma: the 1px border sits inside the 8px padding */
+.chip {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  padding: 7px 19px;
+  border: 1px solid var(--ink);
+  border-radius: 100px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.chip:hover {
+  background: rgba(7, 23, 34, 0.06);
+}
+
+.chipActive,
+.chipActive:hover {
+  background: var(--ink);
+  color: var(--paper);
+  font-weight: 600;
+}
+
+/* ---------- stories ---------- */
+.results {
+  width: 100%;
+  max-width: 1320px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
+
+/* photo + text, centred as a 1000px group in the 1320 row. In RTL the first
+   child sits on the right, so the cards with the photo on the left reverse. */
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+}
+
+/* backdrop offsets measured from Figma, relative to the photo's centre */
+.card:nth-child(odd) {
+  flex-direction: row-reverse;
+  --blob-dx: -2.276px;
+  --blob-dy: 2.565px;
+}
+
+.card:nth-child(even) {
+  --blob-dx: 0.284px;
+  --blob-dy: -0.175px;
+}
+
+.card:nth-child(3n + 1) {
+  --tone: var(--tile-blue);
+}
+
+.card:nth-child(3n + 2) {
+  --tone: #b6d88b;
+}
+
+.card:nth-child(3n) {
+  --tone: #ffd082;
+}
+
+.visual {
+  position: relative;
+  flex: 0 1 450px;
+  min-width: 0;
+  aspect-ratio: 1;
+}
+
+/* 477.53 x 448.5 tilted card behind the 450 photo; same transform order
+   Figma applies: rotate, then flip, then skew */
+.blob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% + 27.532px);
+  height: calc(100% - 1.496px);
+  border-radius: 114.142px;
+  background: var(--tone);
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  transform: translate(calc(-50% + var(--blob-dx)), calc(-50% + var(--blob-dy))) rotate(175.12deg)
+    scale(1, -1) skewX(-0.18deg);
+}
+
+.photo {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 64px;
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+.text {
+  display: flex;
+  flex: 0 1 470px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  min-width: 0;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 402px;
+  max-width: 100%;
+  color: var(--ink-arrow);
+  text-align: center;
+}
+
+.kicker {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 1.54px;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.excerpt {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.empty {
+  padding: 80px 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1100px) {
+  .card {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .browser {
+    gap: 56px;
+  }
+
+  .list {
+    gap: 64px;
+  }
+}
+
+@media (max-width: 760px) {
+  /* the chips wrap here, so the label goes above them instead of beside */
+  .filterRow {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .filterLabel {
+    line-height: 20px;
+  }
+
+  .card,
+  .card:nth-child(odd) {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* leave room for the tilted backdrop inside the 16px gutters */
+  .visual {
+    flex: none;
+    width: min(450px, calc(100% - 40px));
+  }
+
+  .photo {
+    border-radius: 48px;
+  }
+
+  .text {
+    flex: none;
+    width: 100%;
+    gap: 32px;
+  }
+
+  .title {
+    font-size: 28px;
+  }
+}
