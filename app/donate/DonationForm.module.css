@@ -1,0 +1,730 @@
+/* Donation form + live summary ("contact-grid" in the Figma frame).
+   Colours are the frame's own form palette (#071f33 ink, #0e55a7 blue). */
+
+.grid {
+  --f-ink: #071f33;
+  --f-blue: #0e55a7;
+  --f-line: #d8e3e9;
+  --f-muted: #6b8899;
+  --f-pale: #edf8fd;
+  --f-chip: #afcae8;
+  --f-heebo: var(--font-heebo), var(--font);
+
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding: 32px;
+  color: var(--f-ink);
+}
+
+/* ---------- form card ---------- */
+.formCard {
+  flex: 0 1 804px;
+  min-width: 0;
+  overflow: hidden;
+  border: 2px solid var(--f-blue);
+  border-radius: var(--r-card);
+  background: #fff;
+}
+
+.formHead {
+  padding: 24px 28px;
+  border-bottom: 1px solid var(--f-line);
+}
+
+.formTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.formBody {
+  display: flex;
+  flex-direction: column;
+  padding: 32px;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.divider {
+  flex: none;
+  height: 1px;
+  margin: 36px 0;
+  border: 0;
+  background: var(--f-line);
+}
+
+.stepHead {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  height: 32px;
+}
+
+.stepNum {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--f-blue);
+  color: #fff;
+  font-family: var(--f-heebo);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 20px;
+}
+
+.stepTitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+/* ---------- step 1 ---------- */
+.stepOne {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
+  padding-top: 24px;
+}
+
+.group:first-child {
+  padding-top: 0;
+}
+
+.groupSelect {
+  gap: 6px;
+}
+
+.groupLabel {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+/* Figma pins the toggle at 182.953 wide; the monthly half takes what's left. */
+.toggle {
+  display: flex;
+  width: 182.953px;
+  padding: 4px;
+  border: 1px solid var(--f-line);
+  border-radius: 16px;
+  background: var(--f-chip);
+}
+
+.toggleBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 8px 16px;
+  border: 0;
+  border-radius: 12px;
+  background: transparent;
+  color: #2e404a;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease;
+}
+
+.toggleOnce {
+  flex: 0 0 99px;
+}
+
+.toggleMonthly {
+  flex: 1 1 0;
+  min-width: 0;
+  padding-inline: 0;
+}
+
+.toggleBtn[aria-pressed="true"] {
+  background: #fff;
+  color: var(--f-ink);
+  filter: drop-shadow(0 1px 2px rgba(7, 31, 51, 0.12));
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  height: 40px;
+  padding: 8px 16px;
+  border: 2px solid var(--f-line);
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--f-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.chip[aria-pressed="true"] {
+  border-color: var(--f-ink);
+  background: var(--f-ink);
+  color: #fff;
+}
+
+/* 738 wide in Figma: the row sticks 2px past the right edge of the 736 column. */
+.amounts,
+.fields {
+  width: calc(100% + 2px);
+  margin-inline-start: -2px;
+}
+
+.amounts {
+  display: flex;
+  gap: 16px;
+}
+
+.amount {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 48px;
+  padding: 0 4px;
+  border: 2px solid var(--f-line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--f-muted);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.amount[aria-pressed="true"] {
+  border-color: var(--f-blue);
+  background: var(--f-pale);
+  color: var(--f-ink);
+}
+
+.amount[aria-pressed="true"]::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  inset-inline-start: 8.41px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--f-blue);
+}
+
+.otherAmount {
+  width: 100%;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--f-line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--f-ink);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  text-align: right;
+  transition: border-color 0.16s ease;
+}
+
+.input::placeholder {
+  color: rgba(7, 31, 51, 0.5);
+  opacity: 1;
+}
+
+.inputLtr::placeholder {
+  font-weight: 400;
+}
+
+.input:focus {
+  border-color: var(--f-blue);
+  outline: none;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 1px;
+}
+
+.input[type="number"] {
+  appearance: textfield;
+}
+
+.select {
+  appearance: none;
+  cursor: pointer;
+}
+
+/* ---------- step 2 ---------- */
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-block: 24px;
+}
+
+.fieldRow {
+  display: flex;
+  gap: 24px;
+}
+
+.field {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.fieldLabel {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.dedication {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid var(--f-blue);
+  border-radius: 16px;
+  background: var(--f-pale);
+}
+
+.dedicationBtns {
+  display: flex;
+  gap: 10px;
+  padding: 12px 0 16px;
+}
+
+.option {
+  height: 44px;
+  padding: 10px 16px;
+  border: 2px solid var(--f-line);
+  border-radius: 16px;
+  background: #fff;
+  color: var(--f-ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.option_honor {
+  min-width: 74px;
+}
+
+.option_memory {
+  min-width: 66px;
+}
+
+.dedicationBtns .option[aria-pressed="true"] {
+  border-color: var(--f-blue);
+  color: var(--f-ink);
+}
+
+.dedicationName {
+  width: 100%;
+  margin-bottom: 4px;
+}
+
+.wall {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding-top: 20px;
+}
+
+.wallOptions {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 10px;
+}
+
+.radioRow,
+.checkRow {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+}
+
+.radioRow {
+  align-items: center;
+  min-height: 44px;
+  font-weight: 500;
+}
+
+.radioRowSecond {
+  min-height: 54px;
+  padding-top: 10px;
+}
+
+.radio,
+.checkbox {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 1px solid #767676;
+  background: #fff center no-repeat;
+  appearance: none;
+  cursor: pointer;
+}
+
+.radio {
+  border-radius: 50%;
+}
+
+.radio:checked {
+  border-color: var(--f-ink);
+  background-image: url("/donate/radio-dot.svg");
+  background-size: 10px 10px;
+}
+
+/* ---------- step 3 ---------- */
+.cardFields {
+  width: 100%;
+}
+
+.methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 20px;
+}
+
+.method_card {
+  min-width: 121px;
+}
+
+.method_bit {
+  min-width: 59px;
+}
+
+.method_apple {
+  min-width: 107px;
+}
+
+.method_google {
+  min-width: 116px;
+}
+
+.method_paypal {
+  min-width: 84px;
+}
+
+.methods .option[aria-pressed="true"] {
+  border-color: var(--f-ink);
+  background: var(--f-ink);
+  color: #fff;
+}
+
+.consents {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 24px;
+}
+
+.checkRow {
+  align-items: flex-start;
+  min-height: 44px;
+  font-weight: 300;
+}
+
+.checkRowSecond {
+  min-height: 56px;
+  padding-top: 12px;
+}
+
+.checkbox {
+  margin-top: 2px;
+  border-radius: 2px;
+}
+
+.checkbox:checked {
+  border-color: var(--f-ink);
+  background-color: var(--f-ink);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none'%3E%3Cpath d='M2.5 6.2l2.3 2.3 4.7-5' stroke='white' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-size: 12px 12px;
+}
+
+.submitWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 28px;
+}
+
+.submit {
+  width: 100%;
+  height: 56px;
+  border: 0;
+  border-radius: 100px;
+  background: #b0bec5;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  transition: background-color 0.16s ease;
+}
+
+.submitReady {
+  background: var(--f-ink);
+}
+
+.secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 28px;
+  padding-top: 12px;
+  color: var(--f-muted);
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.status {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: center;
+}
+
+.status:not(:empty) {
+  padding-top: 12px;
+}
+
+/* ---------- summary ---------- */
+.summaryCol {
+  position: sticky;
+  top: 24px;
+  flex: 0 0 420px;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 26px;
+  border: 2px solid var(--f-blue);
+  border-radius: var(--r-card);
+  background: #fff;
+}
+
+.summaryTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--ink);
+}
+
+.total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 124px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--f-pale);
+  text-align: center;
+}
+
+.totalAmount {
+  font-family: var(--f-heebo);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 60px;
+  letter-spacing: -0.8px;
+}
+
+.totalCaption {
+  padding-top: 4px;
+  color: var(--f-muted);
+  font-family: var(--f-heebo);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  margin: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.row dt {
+  color: var(--f-muted);
+  font-weight: 300;
+}
+
+.row dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.summaryLine {
+  position: relative;
+  width: 100%;
+  height: 0;
+}
+
+.summaryLine img {
+  position: absolute;
+  top: -1px;
+  right: 0;
+  width: 100%;
+  height: 1px;
+}
+
+.summaryNote {
+  color: var(--f-muted);
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.features li {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.featureIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--f-chip);
+}
+
+/* ---------- smaller screens (the design is desktop only) ---------- */
+@media (max-width: 1200px) {
+  .grid {
+    padding-inline: 0;
+  }
+
+  .summaryCol {
+    flex-basis: 360px;
+  }
+}
+
+@media (max-width: 1000px) {
+  /* summary above the form */
+  .grid {
+    flex-direction: column-reverse;
+    align-items: stretch;
+    padding: 0;
+  }
+
+  .formCard {
+    flex-basis: auto;
+  }
+
+  .summaryCol {
+    position: static;
+    flex-basis: auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .formHead {
+    padding: 20px;
+  }
+
+  .formBody {
+    padding: 24px 16px;
+  }
+
+  .summary {
+    padding: 22px 18px;
+  }
+
+  .fieldRow {
+    flex-direction: column;
+  }
+
+  .amounts,
+  .fields {
+    width: 100%;
+    margin-inline-start: 0;
+  }
+
+  .amounts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .dedication {
+    padding: 16px;
+  }
+}
