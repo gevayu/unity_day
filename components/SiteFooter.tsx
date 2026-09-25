@@ -134,7 +134,7 @@ export default function SiteFooter({ compact = false }: SiteFooterProps) {
               </h2>
               <p className={styles.blockBody}>כל תרומה מגדילה את המעגל.</p>
             </div>
-            <a href="#" className={styles.donate}>
+            <a href="/donate" className={styles.donate}>
               תרומה
             </a>
           </section>

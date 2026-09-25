@@ -18,7 +18,7 @@ const CONTACT = {
   phoneDial: "+97231234567",
   hours: "א׳–ה׳, 9:00–17:00",
 };
-const MONTHLY_HREF = "#";
+const MONTHLY_HREF = "/donate";
 const MATCH_HREF = "#";
 
 const SITE_URL = "https://unity-day.org.il";

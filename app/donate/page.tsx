@@ -19,7 +19,7 @@ const BANK_TEXT = BANK_DETAILS.map((d) => `${d.label}: ${d.value}`).join("\n");
 export default function DonatePage() {
   return (
     <>
-      <SiteHeader />
+      <SiteHeader minimal />
 
       <main className={heebo.variable}>
         <section className={styles.hero}>
@@ -128,7 +128,7 @@ export default function DonatePage() {
         </section>
       </main>
 
-      <SiteFooter />
+      <SiteFooter compact />
     </>
   );
 }

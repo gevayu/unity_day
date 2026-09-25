@@ -88,9 +88,9 @@ export default function SiteHeader({ minimal = false }: SiteHeaderProps) {
               <Image src="/site/icon-globe.svg" alt="" width={14} height={14} aria-hidden="true" />
               <span dir="ltr">EN / עב</span>
             </a>
-            <a href="#" className={styles.donate}>
+            <Link href="/donate" className={styles.donate}>
               תרומה
-            </a>
+            </Link>
           </div>
         )}
       </div>

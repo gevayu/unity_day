@@ -13,8 +13,7 @@ export const metadata: Metadata = {
 // TODO: there is no search page yet; the form already sends ?q= to /search.
 const SEARCH_ACTION = "/search";
 
-// TODO: no donation page yet.
-const DONATE_HREF = "#";
+const DONATE_HREF = "/donate";
 
 type Tile = { label: string; icon: string; href: string; tone: "blue" | "yellow" | "green" };
 
@@ -25,7 +24,7 @@ const TILES: Tile[] = [
   { label: "על הפרס", icon: "/not-found/icon-prize.svg", href: "#", tone: "green" },
   { label: "הגשת מועמדות", icon: "/not-found/icon-nominations.svg", href: "/prize/nominations", tone: "yellow" },
   // TODO: no Unity Day page yet.
-  { label: "יום האחדות", icon: "/not-found/icon-unity-day.svg", href: "#", tone: "blue" },
+  { label: "יום האחדות", icon: "/not-found/icon-unity-day.svg", href: "/unity-day", tone: "blue" },
   { label: "גלריה", icon: "/not-found/icon-gallery.svg", href: "/gallery", tone: "yellow" },
   { label: "תרומה", icon: "/not-found/icon-donate.svg", href: DONATE_HREF, tone: "green" },
   { label: "צור קשר", icon: "/not-found/icon-contact.svg", href: "/contact", tone: "blue" },
