@@ -18,7 +18,7 @@ export default function CheckoutPage() {
           bar and the logo, and the footer drops its sitemap. */}
       <SiteHeader minimal />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className={styles.hero}>
           <Image src="/gallery/hero.jpg" alt="" fill priority sizes="100vw" className={styles.heroImage} />
           <div className={styles.heroText}>

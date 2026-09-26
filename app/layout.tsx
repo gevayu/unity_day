@@ -42,7 +42,12 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="he" dir="rtl" className={`${polin.variable} ${rubik.variable} ${outfit.variable}`}>
-      <body>{children}</body>
+      <body>
+        <a href="#main" className="skip-link">
+          דלג לתוכן הראשי
+        </a>
+        {children}
+      </body>
     </html>
   );
 }

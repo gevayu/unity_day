@@ -32,7 +32,7 @@ export default async function HeroVariantPage({ params }: Props) {
   return (
     <>
       <SiteHeader />
-      <main>
+      <main id="main" tabIndex={-1}>
         <HeroVariant variant={variant} />
         <ChoiceSection />
       </main>

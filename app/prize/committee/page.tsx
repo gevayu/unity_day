@@ -17,7 +17,7 @@ export default function CommitteePage() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className={styles.hero}>
           <Image src="/committee/hero.jpg" alt="" fill priority sizes="100vw" className={styles.heroBg} />
           <div className={styles.heroContent}>

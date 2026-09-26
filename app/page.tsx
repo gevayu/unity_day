@@ -41,7 +41,7 @@ export default function HomePage() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <Hero />
 
         <ChoiceSection />

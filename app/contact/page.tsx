@@ -32,7 +32,7 @@ export default function ContactPage() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className={styles.hero}>
           <Image src="/gallery/photo-2.jpg" alt="" fill priority sizes="100vw" className={styles.heroImage} />
           <div className={styles.heroText}>

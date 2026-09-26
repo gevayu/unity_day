@@ -58,7 +58,7 @@ export default function NominationsPage() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className={styles.hero}>
           <Image
             src="/nominations/hero.jpg"
