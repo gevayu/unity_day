@@ -466,7 +466,8 @@
 }
 
 /* ---------- below the 1440 design ---------- */
-@media (max-width: 1280px) {
+/* the text + four-card row needs 1320px; stack it below that */
+@media (max-width: 1320px) {
   .turnRow {
     flex-direction: column;
     align-items: center;
