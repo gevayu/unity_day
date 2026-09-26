@@ -285,6 +285,14 @@
   line-height: 1.4;
 }
 
+/* The browser sets Polin slightly wider than Figma; 557px (Figma: 537)
+   reproduces Figma's line breaks in both wide cards (549-562 all do).
+   The text is centred, so it doesn't move. */
+.categoryRow:last-child .categoryText {
+  width: calc(100% + 20px);
+  margin-inline: -10px;
+}
+
 .categoriesFoot {
   display: flex;
   flex-direction: column;

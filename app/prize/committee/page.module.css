@@ -49,7 +49,11 @@
   letter-spacing: 1px;
 }
 
+/* The browser sets Polin slightly wider than Figma; 580px (Figma: 562)
+   reproduces Figma's five lines (568-593 all do) instead of six.
+   The text is centred, so it doesn't move. */
 .heroLead {
+  margin-inline: -9px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.4;
@@ -91,6 +95,10 @@
 
   .heroTitle {
     font-size: 48px;
+  }
+
+  .heroLead {
+    margin-inline: 0;
   }
 
   .heroPhoto {
