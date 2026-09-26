@@ -195,6 +195,13 @@
   line-height: 1.4;
 }
 
+/* The browser sets Polin slightly wider than Figma; 422px (Figma: 402)
+   keeps Figma's lines (412-458 all do: the first paragraph on one line,
+   the second on two). The text is centred, so it doesn't move. */
+.excerpt > p {
+  margin-inline: -10px;
+}
+
 .empty {
   padding: 80px 0;
   font-size: 18px;

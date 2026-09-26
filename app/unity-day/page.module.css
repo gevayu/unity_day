@@ -193,6 +193,13 @@
   line-height: 1.4;
 }
 
+/* The browser sets Polin slightly wider than Figma; 519px (Figma: 511)
+   reproduces Figma's line breaks in both paragraphs (515-521 all do).
+   The text is centred, so it doesn't move. */
+.connectBody > p {
+  margin-inline: -4px;
+}
+
 .connectText .connectCta {
   font-size: 15px;
   font-weight: 700;
@@ -284,8 +291,10 @@
   font-weight: 600;
 }
 
+/* Figma: 632px. The browser sets Polin slightly wider, so 641px keeps
+   Figma's line breaks (633-649 all do); the text is centred, so it doesn't move. */
 .journeyLead {
-  width: 632px;
+  width: 641px;
   max-width: 100%;
   font-size: 18px;
   font-weight: 500;
@@ -445,8 +454,11 @@
   line-height: var(--title-lh);
 }
 
+/* Figma: 299px. The browser sets Polin slightly wider; 312px reproduces
+   Figma's line breaks in all four cards (301-323 all do). It grows toward
+   the left only, so the right-aligned text doesn't move. */
 .wayDesc {
-  width: 100%;
+  width: calc(100% + 13px);
   font-size: 16px;
   font-weight: 500;
   line-height: 1.4;

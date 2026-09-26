@@ -277,6 +277,13 @@
   line-height: 22.4px;
 }
 
+/* The browser sets Polin slightly wider than Figma; 731px (Figma: 719)
+   reproduces Figma's line breaks in all three paragraphs (720-759 all do).
+   The text is centred, so it doesn't move. */
+.beginningText > p {
+  margin-inline: -6px;
+}
+
 .storiesBody {
   display: flex;
   flex-direction: column;
