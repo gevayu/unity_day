@@ -1,0 +1,447 @@
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 392px;
+  padding: 50px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+  margin-inline: auto;
+  color: var(--paper);
+}
+
+.heroTitle {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.heroLead {
+  width: 561px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border: 1px solid #d8e3e9;
+  border-radius: var(--r-card);
+  background: #fff;
+  color: #071f33;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.heroBadge img {
+  flex: none;
+}
+
+/* ---------- donation form ---------- */
+.donate {
+  padding: 100px var(--gutter);
+  background: #fff;
+}
+
+/* ---------- other ways to give ---------- */
+.ways {
+  position: relative;
+  padding: 100px var(--gutter);
+  overflow: hidden;
+  background: #fff;
+  color: #071f33;
+}
+
+.heartHand {
+  position: absolute;
+  left: calc(50% - 735px);
+  top: 3.49px;
+  width: 259px;
+  height: 182px;
+}
+
+.heartHand img {
+  position: absolute;
+}
+
+.heartHand img:nth-child(1) {
+  left: 0;
+  top: 0;
+}
+
+.heartHand img:nth-child(2) {
+  left: 5.783px;
+  top: 0.413px;
+}
+
+.heartHand img:nth-child(3) {
+  left: 6.464px;
+  top: 1.117px;
+}
+
+.waysInner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.waysTitle {
+  height: 65px;
+  color: var(--ink);
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+.waysBody {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.waysCards {
+  display: flex;
+  gap: 24px;
+}
+
+.wayCard {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  min-width: 0;
+  height: 454px;
+  padding: 32px;
+  border: 4px solid;
+  border-radius: 64px;
+}
+
+.wayCard > * {
+  flex: none;
+}
+
+.wayBank {
+  border-color: #b6d88b;
+  background: #f4f9eb;
+}
+
+.wayAbroad {
+  border-color: #ffd082;
+  background: #fff6e5;
+}
+
+.wayIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 4px solid;
+  border-radius: 16px;
+}
+
+.wayBank .wayIcon {
+  border-color: #a8d764;
+  background: rgba(168, 215, 100, 0.25);
+}
+
+.wayAbroad .wayIcon {
+  border-color: #ffd082;
+  background: #ffe8bc;
+}
+
+.wayTitle {
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+/* Figma keeps the text blocks 562 wide inside the 576 card body, flush right. */
+.wayLead,
+.bankRows,
+.tags,
+.partners,
+.bankNote {
+  width: 562px;
+  max-width: 100%;
+}
+
+.wayLead {
+  padding-top: 12px;
+  color: #6b8899;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 22.75px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding-top: 20px;
+}
+
+.tags li {
+  padding: 6px 12px;
+  border: 1px solid rgba(255, 180, 59, 0.38);
+  border-radius: var(--r-pill);
+  background: rgba(255, 180, 59, 0.14);
+  font-family: var(--font-heebo), var(--font);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+.partners {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-top: 24px;
+}
+
+.partner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #d8e3e9;
+  border-radius: 16px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  transition: border-color 0.16s ease;
+}
+
+.partner:hover,
+.helpLink:hover {
+  border-color: #071f33;
+}
+
+.bankRows {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 20px 0 24px;
+  font-family: var(--font-heebo), var(--font);
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.bankRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 8px;
+  border-bottom: 1px solid rgba(168, 215, 100, 0.19);
+}
+
+.bankRow dt {
+  color: #6b8899;
+  font-weight: 400;
+}
+
+.bankRow dd {
+  margin: 0;
+  font-weight: 600;
+}
+
+.copyBtn {
+  width: 100%;
+  height: 48px;
+  border: 2px solid #071f33;
+  border-radius: 100px;
+  background: #fff;
+  color: #071f33;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  transition: background-color 0.16s ease, color 0.16s ease;
+}
+
+.copyBtn:hover {
+  background: #071f33;
+  color: #fff;
+}
+
+.bankNote {
+  padding-top: 12px;
+  color: #6b8899;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16px;
+}
+
+.help {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-height: 142px;
+  padding: 0 85px 0 45px;
+  overflow: hidden;
+  border: 4px solid #8bb6e1;
+  border-radius: 64px;
+  background: #e7f6fd;
+}
+
+.helpText {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.helpTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+
+.helpLead {
+  color: #6b8899;
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+}
+
+.helpLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.helpLink {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 12px 20px;
+  border: 1px solid #d8e3e9;
+  border-radius: 16px;
+  background: #fff;
+  font-family: var(--font-heebo), var(--font);
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: border-color 0.16s ease;
+}
+
+/* ---------- smaller screens (the design is desktop only) ---------- */
+@media (max-width: 1280px) {
+  .heartHand {
+    display: none;
+  }
+}
+
+@media (max-width: 1100px) {
+  .waysCards {
+    flex-direction: column;
+  }
+
+  .wayCard {
+    flex: none;
+    height: auto;
+  }
+
+  .wayLead,
+  .bankRows,
+  .tags,
+  .partners,
+  .bankNote {
+    width: 100%;
+  }
+
+  .help {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 40px;
+    border-radius: var(--r-card);
+  }
+}
+
+@media (max-width: 760px) {
+  .hero {
+    height: auto;
+    min-height: 360px;
+    padding: 56px 16px;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+    letter-spacing: -1.2px;
+  }
+
+  .heroLead {
+    font-size: 16px;
+  }
+
+  .donate,
+  .ways {
+    padding: 64px 16px;
+  }
+
+  .waysTitle {
+    height: auto;
+    font-size: 30px;
+  }
+
+  .wayCard {
+    padding: 24px 20px;
+    border-radius: var(--r-card);
+  }
+
+  .help {
+    padding: 24px 20px;
+  }
+
+  .helpLinks,
+  .helpLinks li {
+    width: 100%;
+  }
+
+  .helpLink {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}

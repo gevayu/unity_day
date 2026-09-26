@@ -1,0 +1,530 @@
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+/* zoomed crop, positioned as in Figma (exact at 1440 wide) */
+.heroImage {
+  position: absolute;
+  left: -55.36%;
+  top: -70.86%;
+  width: 156.64%;
+  height: auto;
+  max-width: none;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+
+.heroContent {
+  display: flex;
+  justify-content: flex-start; /* RTL: right */
+  width: 100%;
+  max-width: 1320px;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 771px;
+  color: #fff;
+  text-align: center;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.heroLead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.heroLead p {
+  width: 600px;
+  max-width: 100%;
+}
+
+/* ---------- about ---------- */
+.about {
+  position: relative;
+  padding: 100px var(--gutter);
+  background: #fff;
+}
+
+/* tilted green card behind the photo */
+.aboutBlob {
+  position: absolute;
+  left: calc(50% - 697.74px);
+  top: 73.63px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 762.495px;
+  height: 767.783px;
+}
+
+.aboutBlob::before {
+  content: "";
+  flex: none;
+  width: 706.854px;
+  height: 709.993px;
+  border-radius: 114.142px;
+  background: #b6d88b;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  /* same order Figma applies: rotate, then flip, then skew */
+  transform: rotate(175.12deg) scale(1, -1) skewX(-0.18deg);
+}
+
+.aboutRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+.aboutText {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 598px;
+}
+
+.aboutIllustration {
+  position: relative;
+  width: 198px;
+  height: 175px;
+  overflow: hidden;
+}
+
+.aboutIllustration img {
+  position: absolute;
+  left: -130.18%;
+  top: -175.28%;
+  width: 574.56%;
+  height: 434.45%;
+  max-width: none;
+}
+
+.aboutTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.aboutBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 500px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(12, 12, 12, 0.7);
+  text-align: center;
+}
+
+.aboutPhoto {
+  position: relative;
+  flex: 1 1 0;
+  height: 716px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.aboutPhoto img {
+  object-fit: cover;
+}
+
+/* ---------- shared section heading ---------- */
+.sectionHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 100%;
+  color: var(--ink);
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.sectionLead {
+  width: 700px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- categories ---------- */
+.categories {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 70px var(--gutter);
+  background: #fff;
+}
+
+.map {
+  position: absolute;
+  top: 21px;
+  left: calc(50% + 415px);
+  object-fit: cover;
+}
+
+.categoryGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 1202px;
+}
+
+.categoryRow {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  gap: 16px;
+}
+
+.categoryRow:first-child {
+  min-height: 202px;
+}
+
+.categoryRow:last-child {
+  min-height: 189px;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px;
+  overflow: hidden;
+  border: 4px solid;
+  border-radius: var(--r-card);
+  color: var(--ink);
+  text-align: center;
+}
+
+.blue {
+  border-color: #8bb6e1;
+  background: #e7f6fd;
+}
+
+.green {
+  border-color: #b6d88b;
+  background: #f4f9eb;
+}
+
+.yellow {
+  border-color: #ffd082;
+  background: #fff6e5;
+}
+
+.categoryTitle {
+  width: 100%;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.categoryTitle[data-align="start"] {
+  text-align: start;
+}
+
+.categoryText {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.categoriesFoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- wave band ---------- */
+.wave {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 600px;
+  padding: 24px var(--gutter);
+  overflow: hidden;
+  background: #fff;
+}
+
+.waveBg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  max-width: none;
+  transform: translate(-50%, -50%);
+}
+
+.waveContent {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.waveTitle {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.waveText {
+  width: 876px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- who / how ---------- */
+.howTo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  padding: 70px var(--gutter) 150px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.howToBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 37px;
+  width: 100%;
+}
+
+.howToHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.howToHead h3 {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+.howToHead p {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(12, 12, 12, 0.7);
+}
+
+.steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.stepDivider {
+  position: relative;
+  width: 0;
+  height: 100px;
+}
+
+.stepDivider img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 334px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.stepNumber {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.stepText {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.skyline {
+  position: absolute;
+  top: 607px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1280px) {
+  .map {
+    display: none;
+  }
+
+  .aboutBlob {
+    left: 22px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .steps {
+    flex-direction: column;
+  }
+
+  .stepItem {
+    flex-direction: column;
+  }
+
+  .stepDivider {
+    width: 100px;
+    height: 2px;
+  }
+
+  .stepDivider img {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    padding: 64px 16px;
+  }
+
+  .heroImage {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 70% 50%;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .about {
+    padding: 56px 16px;
+    overflow: hidden;
+  }
+
+  .aboutRow {
+    flex-direction: column;
+  }
+
+  .aboutText {
+    width: 100%;
+  }
+
+  .aboutPhoto {
+    flex: none;
+    width: 100%;
+    height: 420px;
+  }
+
+  .categories,
+  .howTo {
+    padding-inline: 16px;
+  }
+
+  .categoryRow {
+    grid-auto-flow: row;
+  }
+
+  .sectionTitle,
+  .aboutTitle {
+    font-size: 34px;
+  }
+
+  .waveTitle {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+}

@@ -1,0 +1,499 @@
+/* ---------- shared ---------- */
+.photo {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+  padding: 40px 18px;
+  color: var(--paper);
+  text-align: center;
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25));
+}
+
+.heroTitle {
+  width: 918px;
+  max-width: 100%;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.8px;
+}
+
+.heroLead {
+  width: 561px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- winner identity strip ---------- */
+.identity {
+  padding: var(--gutter);
+  background: #fff;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 64px;
+  max-width: 1320px;
+  min-height: 124px;
+  margin: 0 auto;
+  border: 4px solid #b6d88b;
+  border-radius: var(--r-card);
+  background: #f4f9eb;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.metaItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.metaLabel {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1.4px;
+  color: var(--text-muted);
+}
+
+.metaValue {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* ---------- story + quote ---------- */
+.story {
+  display: flex;
+  justify-content: center;
+  padding: 80px var(--gutter);
+  background: #fff;
+}
+
+.storyRow {
+  display: flex;
+  align-items: center;
+  gap: 90px;
+  max-width: 100%;
+}
+
+.storyText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  width: 512px;
+  max-width: 100%;
+}
+
+/* the SVG is 0.46% wider than its frame on both sides and 0.69% taller */
+.gift {
+  position: relative;
+  width: 271.135px;
+  height: 180px;
+}
+
+.gift img {
+  position: absolute;
+  top: 0;
+  left: -0.46%;
+}
+
+.storyBody {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  width: 100%;
+  color: var(--ink);
+  text-align: center;
+}
+
+.storyTitle {
+  display: flex;
+  flex-direction: column;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.storyTitleAccent {
+  color: var(--journey-memory);
+}
+
+.storyParagraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.storyParagraphs .pullQuote {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.quoteCard {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 400px;
+  height: 640px;
+  padding-bottom: 32px;
+  border-radius: var(--r-card);
+  background: #ffd082;
+}
+
+.quotePhoto {
+  flex: none;
+  width: 100%;
+  height: 350px;
+}
+
+.quote {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 20px;
+  width: 352px;
+  max-width: calc(100% - 48px);
+  color: #472d00;
+  text-align: right;
+}
+
+.quoteMark {
+  height: 33px;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.quoteText {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.quoteAuthor {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.2;
+  letter-spacing: 1.4px;
+  white-space: nowrap;
+}
+
+/* ---------- gallery ---------- */
+.gallery {
+  padding: 80px var(--gutter);
+  background: #fff;
+}
+
+.galleryInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.galleryTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.galleryTop {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  height: 480px;
+}
+
+.feature {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.galleryStack {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 16px;
+  width: 436px;
+}
+
+.galleryStack .photo {
+  flex: 1 1 0;
+  min-height: 0;
+}
+
+.galleryRow {
+  display: flex;
+  gap: 16px;
+  width: 100%;
+  height: 300px;
+}
+
+.galleryRow .photo {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.galleryInner .allWinners {
+  width: 210px;
+  color: var(--paper);
+}
+
+/* ---------- nominations call ---------- */
+.cta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 595px;
+  padding: 100px var(--gutter) 80px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ctaWave {
+  position: absolute;
+  left: 50%;
+  top: calc(50% - 45.5px);
+  width: 2500px;
+  height: 500px;
+  max-width: none;
+  transform: translate(-50%, -50%);
+}
+
+.ctaCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1320px;
+  padding: 60px 32px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.ctaContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 700px;
+  max-width: 100%;
+  color: var(--ink);
+  text-align: center;
+}
+
+.ctaTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.ctaText {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* 48px tall in this frame, not the usual 50 */
+.ctaButtons .ctaButton {
+  height: 48px;
+}
+
+/* the 1px stroke sits inside the 48px box */
+.ctaButtons .outline {
+  padding: 13px 27px;
+  border: 1px solid var(--ink);
+  background: transparent;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1100px) {
+  .storyRow {
+    gap: 48px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 420px;
+    padding: 56px 16px;
+  }
+
+  .heroContent {
+    padding: 24px 0;
+  }
+
+  .heroTitle {
+    font-size: 48px;
+    letter-spacing: -1px;
+  }
+
+  .heroLead {
+    font-size: 16px;
+  }
+
+  .identity {
+    padding: 40px 16px;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px 16px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .story {
+    padding: 56px 16px;
+  }
+
+  .storyRow {
+    flex-direction: column;
+    gap: 48px;
+    width: 100%;
+  }
+
+  .storyTitle {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .quoteCard {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  .quoteText {
+    font-size: 26px;
+  }
+
+  .quoteAuthor {
+    white-space: normal;
+  }
+
+  .gallery {
+    padding: 56px 16px;
+  }
+
+  .galleryTitle {
+    font-size: 34px;
+    letter-spacing: -1px;
+  }
+
+  .galleryTop,
+  .galleryRow {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .feature,
+  .galleryRow .photo {
+    flex: none;
+    height: 260px;
+  }
+
+  .galleryStack {
+    width: 100%;
+  }
+
+  .galleryStack .photo {
+    flex: none;
+    height: 220px;
+  }
+
+  /* keep white above and below the wave, as on desktop */
+  .cta {
+    min-height: 0;
+    padding: 100px 16px 140px;
+  }
+
+  .ctaWave {
+    top: calc(50% - 20px);
+  }
+
+  .ctaCard {
+    padding: 40px 0;
+  }
+
+  .ctaTitle {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .ctaButtons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}

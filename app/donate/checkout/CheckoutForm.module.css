@@ -1,0 +1,435 @@
+/* Figma strokes sit inside the boxes, so every padding below is the design's
+   padding minus the border width. Pixel line heights reproduce Polin's
+   "normal" line height (x1.4). */
+
+.grid {
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  width: 1320px;
+  max-width: 100%;
+  padding: 30px;
+  border: 2px solid #85c441;
+  border-radius: 64px;
+  background: rgba(182, 216, 139, 0.53);
+}
+
+/* ---------- form column ---------- */
+.formCol {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 20px;
+  min-width: 0;
+  margin: 0;
+  padding: 30px;
+  border: 2px solid #85c441;
+  border-radius: var(--r-card);
+  background: #fff;
+}
+
+.cardTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 31px;
+  white-space: nowrap;
+}
+
+.step {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background: #cce3ad;
+  color: #23330e;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 21px;
+}
+
+.cardNote {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  opacity: 0.55;
+}
+
+/* reversed: the first field of a pair sits on the left, as in the design */
+.row {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+/* Figma sets the labels, hint and error flush left (an LTR auto-layout
+   leftover, as on /contact); they stay on the reading side here. */
+.field {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 8px;
+  width: 100%;
+  min-width: 0;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  opacity: 0.75;
+}
+
+.control {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  display: block;
+  width: 100%;
+  height: 52px;
+  padding: 0 15px;
+  border: 1px solid rgba(7, 23, 34, 0.15);
+  border-radius: 12px;
+  background: #fff;
+  color: rgba(7, 23, 34, 0.9);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: right;
+  transition: border-color 0.16s ease;
+}
+
+.input::placeholder {
+  color: var(--ink);
+  opacity: 0.4;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 1px;
+}
+
+/* validated: 1.5px border and a status icon on the reading side */
+.valid,
+.invalid {
+  padding: 0 44.5px 0 14.5px;
+  border-width: 1.5px;
+}
+
+.valid {
+  border-color: #6ba83f;
+}
+
+.invalid {
+  border-color: #e5484d;
+}
+
+.statusIcon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  pointer-events: none;
+}
+
+.hint,
+.error {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.hint {
+  opacity: 0.5;
+}
+
+.error {
+  color: #e5484d;
+}
+
+/* ---------- consent ---------- */
+.consent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 22px 30px;
+  border: 2px solid #85c441;
+  border-radius: var(--r-card);
+  background: #f4f9eb;
+}
+
+.check {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.check span {
+  flex: 1 1 0;
+  min-width: 0;
+  opacity: 0.9;
+}
+
+.checkbox {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  border: 1.5px solid rgba(7, 23, 34, 0.3);
+  border-radius: 7px;
+  background: #fff center / 14px 14px no-repeat;
+  appearance: none;
+  cursor: pointer;
+}
+
+.checkbox:checked {
+  border-color: #6ba83f;
+  background-color: #6ba83f;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M2.5 7.5l3 3 6-7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.link {
+  font-weight: 600;
+  color: #3d6b1e;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  text-underline-position: from-font;
+}
+
+/* ---------- summary column ---------- */
+.summaryCol {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 16px;
+  width: 420px;
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 26px;
+  border: 2px solid #85c441;
+  border-radius: var(--r-card);
+  background: #fff;
+  box-shadow: 0 18px 40px -16px rgba(8, 23, 33, 0.12);
+  white-space: nowrap;
+}
+
+.summaryTitle {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 31px;
+}
+
+.item,
+.detail,
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.itemText {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.itemName {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.itemMeta {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  opacity: 0.55;
+}
+
+.itemPrice,
+.totalValue {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 31px;
+}
+
+.rule {
+  height: 1px;
+  margin: 0;
+  border: 0;
+  background: rgba(7, 23, 34, 0.1);
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin: 0;
+}
+
+.detail dt {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  opacity: 0.55;
+}
+
+.detail dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 21px;
+}
+
+.totalLabel {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.pay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  height: 62px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 24px;
+  white-space: nowrap;
+  transition: transform 0.16s ease;
+}
+
+.pay:hover {
+  transform: translateY(-2px);
+}
+
+.trust {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 16px;
+  padding: 12px 16px;
+  border: 2px solid #85c441;
+  border-radius: var(--r-card);
+  background: #f4f9eb;
+}
+
+.trust li {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: rgba(7, 23, 34, 0.65);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 17px;
+  white-space: nowrap;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(7, 23, 34, 0.6);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.back:hover {
+  color: var(--ink);
+}
+
+.backIcon {
+  transform: scaleX(-1);
+}
+
+.status {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1100px) {
+  .grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .summaryCol {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    gap: 20px;
+    padding: 14px;
+    border-radius: var(--r-card);
+  }
+
+  .card,
+  .consent {
+    padding: 22px 18px;
+    border-radius: 24px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .cardTitle,
+  .summary,
+  .trust li,
+  .pay {
+    white-space: normal;
+  }
+
+  .summary {
+    padding: 22px 18px;
+  }
+
+  .pay {
+    height: auto;
+    min-height: 62px;
+    padding: 12px 24px;
+    text-align: center;
+  }
+}

@@ -1,0 +1,661 @@
+/* ---------- shared ---------- */
+.titleXl {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* the tilted rounded cards behind the about panel and the story photos;
+   same transform order Figma applies: rotate, then flip, then skew */
+.aboutBlob,
+.storyBlob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 114.142px;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  transform: translate(calc(-50% + var(--blob-dx)), calc(-50% + var(--blob-dy))) rotate(175.12deg)
+    scale(1, -1) skewX(-0.18deg);
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+  color: var(--paper);
+  text-align: right;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.8px;
+}
+
+.heroLead,
+.heroText {
+  width: 560px;
+  max-width: 100%;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+.heroLead {
+  font-size: 20px;
+}
+
+.heroText {
+  font-size: 18px;
+}
+
+/* ---------- winners archive ---------- */
+.winners {
+  padding: 120px var(--gutter);
+  background: #fff;
+}
+
+.winnersInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+/* ---------- about the prize ---------- */
+.about {
+  position: relative;
+  padding: 100px var(--gutter) 140px;
+  overflow: hidden;
+  background: #fff;
+  isolation: isolate;
+}
+
+.aboutCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-left: 32px;
+  border-radius: 64px;
+  background: #f1f7fc;
+}
+
+/* 1330.85 x 686.76 at 1440, centred 5.84px right / 0.7px above the card's centre */
+.aboutBlob {
+  --blob-dx: 5.84px;
+  --blob-dy: -0.7px;
+  z-index: -1;
+  width: calc(100% + 10.85px);
+  height: calc(100% - 13.241px);
+  background: var(--brand-blue);
+}
+
+/* In Figma this panel sits at x=1320 and is flipped horizontally, so it
+   renders on the right of the card with the photo mirrored. */
+/* The corners on the text side sit under the opaque end of the fade, so they
+   stay square: rounding them clips the blurred fade and the photo in separate
+   layers, which leaves a 1px photo arc showing. */
+.aboutPhoto {
+  position: relative;
+  flex: 0 1 650px;
+  min-width: 0;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 0 64px 64px 0;
+}
+
+.aboutPhoto img {
+  object-fit: cover;
+  object-position: 37.5% 50%;
+  transform: scaleX(-1);
+}
+
+/* photo fades into the card towards the text (the photo box clips the corners) */
+.aboutFade {
+  --fade-angle: 270.15deg;
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 66.31%;
+}
+
+.aboutFade::before,
+.aboutFade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Figma only blurs as much as the fill is opaque, so ramp the blur with it */
+.aboutFade::before {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(var(--fade-angle), transparent 4.6386%, #000 87.545%);
+  mask-image: linear-gradient(var(--fade-angle), transparent 4.6386%, #000 87.545%);
+}
+
+/* ...and paint the fill over the blurred photo */
+.aboutFade::after {
+  background: linear-gradient(var(--fade-angle), rgba(241, 247, 252, 0) 4.6386%, #f1f7fc 87.545%);
+}
+
+.aboutText {
+  display: flex;
+  flex: 0 1 606px;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  justify-content: center;
+  gap: 70px;
+  min-width: 0;
+  height: 636px;
+}
+
+.aboutCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  color: var(--ink);
+  text-align: right;
+}
+
+.aboutTitle {
+  width: 100%;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.aboutBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 12px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.aboutBody p {
+  width: 450px;
+  max-width: 100%;
+}
+
+.outlineButton {
+  border: 1px solid var(--ink);
+}
+
+/* ---------- winners' stories ---------- */
+.stories {
+  overflow: hidden;
+  background: #fff;
+}
+
+.beginning {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 334px;
+  padding: 24px var(--gutter);
+  color: var(--ink);
+  text-align: center;
+}
+
+.beginningTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.beginningBody {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 719px;
+  max-width: 100%;
+}
+
+.beginningLead {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26.4px;
+}
+
+.beginningText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+}
+
+.storiesBody {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  padding: 100px var(--gutter);
+}
+
+.storyGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 450px));
+  justify-content: center;
+  gap: 70px 200px;
+  width: 100%;
+}
+
+.story {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* right-hand card of each row (first in RTL order) */
+.story:nth-child(odd) {
+  --blob-dx: 0.284px;
+  --blob-dy: 2.825px;
+}
+
+.story:nth-child(even) {
+  --blob-dx: -6.28px;
+  --blob-dy: 2.565px;
+}
+
+.storyVisual {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+/* 477.53 x 448.5 behind a 450 photo */
+.storyBlob {
+  width: calc(100% + 27.532px);
+  height: calc(100% - 1.496px);
+}
+
+.storyPhoto {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 64px;
+}
+
+.storyPhoto img {
+  object-fit: cover;
+}
+
+.storyText {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 334px;
+  max-width: 100%;
+  height: 104px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.storyHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+}
+
+.storyDate {
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 16.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.storyTitle {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 26.4px;
+}
+
+.storyBlurb {
+  width: 244px;
+  max-width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 19.6px;
+  color: rgba(7, 23, 34, 0.7);
+}
+
+/* ---------- ways to join ---------- */
+.join {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 100px var(--gutter);
+  background: #fff;
+}
+
+.joinHead {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  text-align: center;
+}
+
+.joinLead {
+  width: 800px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.4;
+  color: #0c0c0c;
+}
+
+.paths {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.path {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  width: 266px;
+  height: 335px;
+  text-align: center;
+}
+
+.pathDivider {
+  position: relative;
+  flex: none;
+  width: 0;
+  height: 335px;
+}
+
+.pathDivider img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+}
+
+/* each illustration is a crop out of a larger square render, as in Figma */
+.pathArt {
+  position: relative;
+  flex: none;
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.pathCrop {
+  position: absolute;
+  overflow: hidden;
+}
+
+.pathCrop img {
+  position: absolute;
+  max-width: none;
+}
+
+.sunrise .pathCrop {
+  left: -1.6%;
+  right: -2%;
+  top: calc(50% + 7px);
+  aspect-ratio: 233 / 144;
+  transform: translateY(-50%);
+}
+
+.sunrise .pathCrop img {
+  left: -15.99%;
+  top: -60.33%;
+  width: 130.13%;
+  height: 210.65%;
+}
+
+.sprout .pathCrop {
+  inset: 14% 14.13% 16.8% 14.27%;
+}
+
+.sprout .pathCrop img {
+  left: -54.42%;
+  top: -64.08%;
+  width: 205.44%;
+  height: 212.68%;
+}
+
+.heart .pathCrop {
+  inset: 19.1% 12.2% 21.7% 12.2%;
+}
+
+.heart .pathCrop img {
+  left: -49.21%;
+  top: -80.41%;
+  width: 197.88%;
+  height: 252.7%;
+}
+
+.community .pathCrop {
+  inset: 15.37% 6% 29.43% 6%;
+}
+
+.community .pathCrop img {
+  left: -18.18%;
+  top: -62.32%;
+  width: 137.27%;
+  height: 218.84%;
+}
+
+.pathText {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.pathTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.pathSub {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--text-muted);
+}
+
+/* the design lets this one card size to its content */
+.community {
+  height: auto;
+}
+
+.community .pathSub {
+  line-height: 1.4;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1100px) {
+  .storyGrid {
+    column-gap: 64px;
+  }
+
+  .paths {
+    display: grid;
+    grid-template-columns: repeat(2, 266px);
+    justify-content: space-around;
+    row-gap: 48px;
+  }
+
+  .path {
+    height: auto;
+  }
+
+  .pathDivider {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 560px;
+    padding: 64px 16px;
+  }
+
+  .heroTitle {
+    font-size: 56px;
+  }
+
+  .winners {
+    padding: 72px 16px;
+  }
+
+  .winnersInner {
+    gap: 40px;
+  }
+
+  .titleXl,
+  .aboutTitle {
+    font-size: 38px;
+    letter-spacing: -1px;
+  }
+
+  .about {
+    padding: 56px 16px;
+  }
+
+  .aboutCard {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 0 40px;
+    border-radius: var(--r-card);
+  }
+
+  .aboutBlob {
+    display: none;
+  }
+
+  .aboutPhoto {
+    flex: none;
+    width: 100%;
+    height: 420px;
+    border-radius: var(--r-card) var(--r-card) 0 0;
+  }
+
+  .aboutFade {
+    --fade-angle: 180deg;
+    inset: auto 0 0 0;
+    width: 100%;
+    height: 50%;
+  }
+
+  .aboutText {
+    flex: none;
+    width: 100%;
+    height: auto;
+    gap: 40px;
+    padding-inline: 24px;
+  }
+
+  .beginning {
+    padding: 56px 16px 0;
+  }
+
+  .beginningTitle {
+    font-size: 34px;
+  }
+
+  .storiesBody {
+    padding: 56px 16px;
+  }
+
+  .join {
+    gap: 48px;
+    padding: 72px 16px;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroTitle {
+    font-size: 44px;
+  }
+
+  .storyGrid {
+    grid-template-columns: minmax(0, 450px);
+    row-gap: 48px;
+  }
+
+  .storyPhoto {
+    border-radius: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .paths {
+    grid-template-columns: 266px;
+    justify-content: center;
+  }
+}

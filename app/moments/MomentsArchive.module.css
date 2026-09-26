@@ -1,0 +1,186 @@
+.archive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: var(--gutter);
+  background: #fff;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  width: 100%;
+  max-width: 1202px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.filters {
+  display: flex;
+  gap: 8px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 8px 18px;
+  border: 1px solid rgba(7, 23, 34, 0.3);
+  border-radius: 99px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.16s ease;
+}
+
+.chip:hover {
+  background: rgba(7, 23, 34, 0.06);
+}
+
+.chipActive,
+.chipActive:hover {
+  border-color: #0d1b3e;
+  background: var(--ink);
+  color: #fff;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 390px);
+  gap: 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  border-radius: var(--r-card);
+  background: rgb(var(--tone));
+}
+
+.media {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  /* bottom corners sit under the solid end of the fade; rounding them leaves
+     a hairline arc of photo where the curve is anti-aliased */
+  border-radius: var(--r-card) var(--r-card) 0 0;
+}
+
+.photo {
+  object-fit: cover;
+}
+
+/* photo melts into the card colour */
+.fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 143px;
+  background: linear-gradient(
+    180.37deg,
+    rgba(var(--tone), 0) 25.255%,
+    rgb(var(--tone)) 90.058%
+  );
+}
+
+/* Figma's background blur only shows where the fill is opaque, so the blur
+   ramps in with the gradient instead of starting at a hard edge */
+.fade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(180deg, transparent 25.255%, #000 90.058%);
+  mask-image: linear-gradient(180deg, transparent 25.255%, #000 90.058%);
+}
+
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 342px;
+  max-width: calc(100% - 48px);
+  padding-bottom: 24px;
+}
+
+.type {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.view {
+  display: inline-flex;
+  align-items: center;
+  height: 50px;
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  background: var(--ink);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: transform 0.16s ease;
+}
+
+.view:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1260px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .archive {
+    gap: 48px;
+    padding: 40px 16px;
+  }
+
+  .inner {
+    gap: 32px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+}

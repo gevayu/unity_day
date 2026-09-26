@@ -1,0 +1,148 @@
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 700px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+/* Figma puts a drop shadow on the frame holding the text, so it lands on the glyphs */
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1320px;
+  padding: 40px 18px;
+  color: var(--paper);
+  text-align: center;
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25));
+}
+
+.heroTitle {
+  width: 918px;
+  max-width: 100%;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.8px;
+}
+
+.heroLead {
+  width: 561px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- intro ---------- */
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 334px;
+  padding: 30px var(--gutter) 60px;
+  background: #fff;
+}
+
+.introText {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 632px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(12, 12, 12, 0.7);
+  text-align: center;
+}
+
+.introLead {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+/* ---------- winners ---------- */
+/* the tilted photo backdrops can poke past narrow screens */
+.winners {
+  display: flex;
+  justify-content: center;
+  padding: 8px var(--gutter) 60px;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 520px;
+    padding: 64px 16px;
+  }
+
+  .heroContent {
+    padding-inline: 0;
+  }
+
+  .heroTitle {
+    font-size: 56px;
+    letter-spacing: -1px;
+  }
+
+  .intro {
+    min-height: 0;
+    padding: 40px 16px 48px;
+  }
+
+  /* room for the tilted backdrops while the cards are still side by side */
+  .winners {
+    padding: 8px 32px 56px;
+  }
+}
+
+@media (max-width: 760px) {
+  .winners {
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero {
+    min-height: 440px;
+  }
+
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .introLead {
+    font-size: 20px;
+  }
+
+  .introText {
+    font-size: 16px;
+  }
+}

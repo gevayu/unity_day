@@ -1,0 +1,196 @@
+.archive {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+}
+
+.years {
+  display: flex;
+  gap: 8px;
+}
+
+.chip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 8px 18px;
+  border: 1px solid rgba(7, 23, 34, 0.3);
+  border-radius: 99px;
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  white-space: nowrap;
+  transition: background-color 0.16s ease;
+}
+
+.chip:hover {
+  background: rgba(7, 23, 34, 0.06);
+}
+
+.chipActive,
+.chipActive:hover {
+  border-color: #0d1b3e;
+  background: var(--ink);
+  color: #fff;
+}
+
+.results {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 429px));
+  justify-content: space-between;
+  gap: 24px 16px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 32px;
+  border-radius: var(--r-card);
+  background: rgb(var(--tone));
+}
+
+/* The bottom corners sit on the card and under the opaque end of the fade, so
+   they stay square: rounding them clips the blurred fade and the photo in
+   separate layers, which leaves a 1px photo arc showing. */
+.media {
+  position: relative;
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: var(--r-card) var(--r-card) 0 0;
+}
+
+.photo {
+  object-fit: cover;
+}
+
+/* photo melts into the card colour (the design mirrors the fade, hence
+   179.67deg). The media box already clips the rounded corners. */
+.fade {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 143px;
+}
+
+.fade::before,
+.fade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+/* Figma only blurs as much as the fill is opaque, so ramp the blur with it */
+.fade::before {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(179.67deg, transparent 25.255%, #000 90.058%);
+  mask-image: linear-gradient(179.67deg, transparent 25.255%, #000 90.058%);
+}
+
+/* ...and paint the fill over the blurred photo */
+.fade::after {
+  background: linear-gradient(179.67deg, rgba(var(--tone), 0) 25.255%, rgb(var(--tone)) 90.058%);
+}
+
+.badge {
+  position: absolute;
+  top: 24px;
+  inset-inline-start: 24px; /* RTL: top right corner */
+  width: 56px;
+  padding: 4px 12px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: center;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 381px;
+  max-width: calc(100% - 48px);
+  color: var(--ink);
+  text-align: right;
+}
+
+/* the design sets the category flush left, opposite the title */
+.category {
+  align-self: flex-end;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.name {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.description {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.empty {
+  padding: 80px 0;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .archive {
+    gap: 32px;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .years {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

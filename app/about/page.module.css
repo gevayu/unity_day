@@ -1,0 +1,1099 @@
+/* ---------- shared ---------- */
+/* Line heights are in whole pixels because Figma rounds its line boxes
+   (54px x 1.2 -> 65px, 16px x 1.4 -> 22px, 14px x 1.4 -> 20px). */
+.title {
+  display: flex;
+  flex-direction: column;
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 65px;
+  letter-spacing: -1.8px;
+}
+
+/* one-line title with an inline accent word */
+.titleInline {
+  display: block;
+}
+
+.accentGold {
+  color: #fab612;
+}
+
+.accentGreen {
+  color: #8dbf22;
+}
+
+.accentAmber {
+  color: #ffb636;
+}
+
+.accentBlue {
+  color: #3692d0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.bodyText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.sectionHead {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1320px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.sectionLead {
+  width: 660px;
+  max-width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: #0c0c0c;
+}
+
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 700px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.heroInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 53px;
+  width: 100%;
+  max-width: 1320px;
+  padding: 40px 18px;
+  filter: drop-shadow(0 4px 2px rgba(0, 0, 0, 0.25));
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  color: var(--paper);
+  text-align: center;
+}
+
+.heroTitle {
+  display: flex;
+  flex-direction: column;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -1.8px;
+}
+
+.heroLead {
+  width: 561px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.heroActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.heroActions .heroGhost {
+  width: 189px;
+  background: rgba(255, 255, 255, 0.55);
+  color: #fff;
+  font-weight: 700;
+}
+
+.heroActions .heroPrimary {
+  background: var(--brand-blue);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* ---------- from memory, a mission ---------- */
+.mission {
+  position: relative;
+  padding: 100px var(--gutter) 140px;
+  overflow: hidden;
+  background: #fff;
+  isolation: isolate;
+}
+
+.missionCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-left: 32px;
+  border-radius: 64px;
+  background: #f1f7fc;
+}
+
+/* Tilted yellow card behind the panel. Anchored to the panel so it follows it
+   below 1440; at 1440 it lands exactly where Figma has it. */
+.missionCard::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  width: calc(100% + 10.85px);
+  height: 686.759px;
+  border-radius: 114.142px;
+  background: #ffd082;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  /* centre on the panel (+5.84, -0.7), then Figma's order: rotate, flip, skew */
+  transform: translate(-50%, -50%) translate(5.84px, -0.704px) rotate(175.12deg) scale(1, -1) skewX(-0.18deg);
+}
+
+/* Only the outer (right) corners are clipped; the inner ones sit under the
+   fade and are painted over below, so no hairline arc shows there. */
+.missionPhoto {
+  position: relative;
+  flex: 0 1 650px;
+  min-width: 0;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 0 64px 64px 0;
+}
+
+.missionPhoto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 64px;
+  background:
+    radial-gradient(circle at 100% 100%, rgba(241, 247, 252, 0) 63.5px, #f1f7fc 64.5px) top left / 64px 64px
+      no-repeat,
+    radial-gradient(circle at 100% 0, rgba(241, 247, 252, 0) 63.5px, #f1f7fc 64.5px) bottom left / 64px 64px
+      no-repeat;
+  pointer-events: none;
+}
+
+/* the design shows this photo mirrored */
+.missionPhoto img {
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+/* fades the photo's inner (left) edge into the panel */
+.missionFade {
+  --fade-dir: to left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: min(220px, 33.85%); /* 220px of 650 at 1440 */
+  background: linear-gradient(to left, rgba(241, 247, 252, 0) 4.6386%, #f1f7fc 87.545%);
+}
+
+/* Figma's 3px background blur only shows where the fade's fill is opaque, so
+   the blur is masked with the same stops instead of starting at a hard edge. */
+.missionFade::before,
+.foundersFade::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(var(--fade-dir), transparent 4.6386%, #000 87.545%);
+  mask-image: linear-gradient(var(--fade-dir), transparent 4.6386%, #000 87.545%);
+}
+
+.missionText {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  min-width: 0;
+  height: 636px;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- unity is not uniformity ---------- */
+.unity {
+  display: flex;
+  justify-content: center;
+  padding: 100px var(--gutter);
+  background: #fff;
+}
+
+.unityRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.unityText {
+  display: flex;
+  flex: 0 1 531px;
+  flex-direction: column;
+  gap: 40px;
+  min-width: 0;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* Figma stretches this illustration to 537x365; it's shown at its own aspect
+   inside that box instead. */
+.globe {
+  position: relative;
+  flex: 0 1 537px;
+  min-width: 0;
+  height: 365px;
+}
+
+.globe img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ---------- from idea to impact ---------- */
+.idea {
+  padding: 100px var(--gutter) 140px;
+  background: #fff;
+}
+
+.ideaCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding: 32px;
+  border-radius: 64px;
+  background: #ddeec4;
+  filter: drop-shadow(0 8px 10px rgba(0, 0, 0, 0.25));
+}
+
+.ideaText {
+  display: flex;
+  flex: 0 1 594px;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  min-width: 0;
+  color: var(--ink);
+  text-align: center;
+}
+
+.ideaTitle {
+  width: 461px;
+  max-width: 100%;
+}
+
+.strips {
+  display: flex;
+  flex: 0 1 633px;
+  min-width: 0;
+  height: 720px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.strip {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+/* Crops from Figma, kept at the photos' true aspect (Figma squashes them by
+   about 2%) and centred where Figma centres them. */
+.strip .stripLeft {
+  object-fit: cover;
+  object-position: 19.88% 0;
+}
+
+.strip .stripMiddle {
+  object-fit: cover;
+  object-position: 46.29% 0;
+}
+
+.strip .stripZoom {
+  position: absolute;
+  left: -507.16%;
+  top: -5.37%;
+  width: auto;
+  height: 105.37%;
+  max-width: none;
+}
+
+/* ---------- when a value becomes action ---------- */
+.circles {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 100px;
+  padding: 120px var(--gutter);
+  overflow: hidden;
+  background: #fff;
+}
+
+.cloudOutline,
+.cloudFilled,
+.plane,
+.cloudSmall,
+.cloudLarge,
+.cloudMedium {
+  position: absolute;
+  max-width: none;
+}
+
+.cloudOutline {
+  left: calc(50% - 885.28px);
+  top: 67.71px;
+}
+
+.cloudFilled {
+  left: calc(50% + 454.28px);
+  top: 69px;
+}
+
+.circleGrid {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.circleCol {
+  display: flex;
+  flex: 0 1 318px;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 0;
+  height: 550px;
+}
+
+.circlePhoto {
+  position: relative;
+  flex: 1 1 0;
+  min-height: 0;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.circlePhoto img {
+  object-fit: cover;
+}
+
+.circleCard {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: var(--card-h);
+  padding: 40px 24px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  text-align: center;
+}
+
+.circleTitle {
+  width: 100%;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.circleText {
+  width: 100%;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.circleTextNarrow {
+  width: 237px;
+  max-width: 100%;
+}
+
+.yellow {
+  background: #ffd082;
+  color: #071722;
+}
+
+.yellow .circleText {
+  color: rgba(7, 23, 34, 0.82);
+}
+
+.amber {
+  background: #ffd082;
+  color: #472d00;
+}
+
+.amber .circleText {
+  color: rgba(71, 45, 0, 0.82);
+}
+
+.blue {
+  background: #8bb6e1;
+  color: #052c3d;
+}
+
+.blue .circleText {
+  color: rgba(5, 44, 61, 0.82);
+}
+
+.green {
+  background: #b6d88b;
+  color: #25330f;
+}
+
+.green .circleText {
+  color: rgba(37, 51, 15, 0.82);
+}
+
+/* ---------- from national pain to an Israeli tradition ---------- */
+.tradition {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 120px var(--gutter);
+  overflow: hidden;
+  background: #fff6e5;
+}
+
+/* the pale green loop behind the text */
+.traditionLine {
+  position: absolute;
+  left: calc(50% - 768.29px);
+  top: 490.768px;
+  max-width: none;
+  transform: rotate(5.02deg) scale(1, -1);
+}
+
+.bunting {
+  position: absolute;
+  left: calc(50% - 593.92px);
+  top: -2.913px;
+  max-width: none;
+}
+
+.traditionRow {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.traditionMedia {
+  position: relative;
+  flex: 0 1 611px;
+  min-width: 0;
+}
+
+/* tilted yellow card behind the photo, sized off the photo so it follows it
+   below 1440 (exact Figma geometry at 1440) */
+.traditionMedia::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% - 5.05px);
+  height: calc(100% + 18.009px);
+  border-radius: 64px;
+  background: #ffd082;
+  box-shadow: 0 68.404px 45.602px -68.404px rgba(31, 32, 34, 0.32);
+  transform: translate(-50%, -50%) translate(4.48px, 2.76px) rotate(-173.36deg) scale(1, -1) skewX(-0.18deg);
+}
+
+.traditionPhoto {
+  position: relative;
+  height: 610px;
+  overflow: hidden;
+  border-radius: 64px;
+}
+
+.traditionPhoto img {
+  object-fit: cover;
+}
+
+.traditionText {
+  position: relative;
+  display: flex;
+  flex: 0 1 677px;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  min-width: 0;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* ---------- Bat Galim and Ofir Shaer ---------- */
+.founders {
+  position: relative;
+  padding: 120px var(--gutter);
+  overflow: hidden;
+  background: #fff;
+}
+
+.foundersWrap {
+  position: relative;
+  max-width: 1320px;
+  margin-inline: auto;
+}
+
+/* tilted green card behind the panel (exact Figma geometry at 1440) */
+.foundersWrap::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% + 36.168px);
+  height: 682.043px;
+  border-radius: 114.142px;
+  background: #b6d88b;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  transform: translate(-50%, -50%) translate(-2.76px, -5.397px) rotate(4.88deg) skewX(0.18deg);
+}
+
+.foundersCard {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-right: 32px;
+  overflow: hidden;
+  border-radius: 64px;
+  background: #0d2230;
+}
+
+/* the dark rings behind the text, cropped by the panel */
+.rings {
+  position: absolute;
+  left: calc(100% - 240px);
+  top: 15px;
+  max-width: none;
+}
+
+.foundersText {
+  position: relative;
+  display: flex;
+  flex: 0 1 606px;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  min-width: 0;
+  height: 636px;
+  color: #fff;
+  text-align: center;
+}
+
+.foundersBody {
+  font-weight: 400;
+}
+
+/* outer (left) corners clipped, inner ones painted under the fade */
+.foundersPhoto {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 64px 0 0 64px;
+}
+
+.foundersPhoto::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  width: 64px;
+  background:
+    radial-gradient(circle at 0 100%, rgba(13, 34, 48, 0) 63.5px, #0d2230 64.5px) top right / 64px 64px no-repeat,
+    radial-gradient(circle at 0 0, rgba(13, 34, 48, 0) 63.5px, #0d2230 64.5px) bottom right / 64px 64px no-repeat;
+  pointer-events: none;
+}
+
+.foundersPhoto img {
+  object-fit: cover;
+}
+
+/* fades the photo's inner (right) edge into the panel (blur: see .missionFade) */
+.foundersFade {
+  --fade-dir: to right;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(184px, 28.31%); /* 184px of 650 at 1440 */
+  background: linear-gradient(to right, rgba(13, 34, 48, 0) 4.6386%, #0d2230 87.545%);
+}
+
+/* ---------- the people behind the work ---------- */
+.people {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 70px;
+  padding: 120px var(--gutter);
+  background: #fff;
+}
+
+.peopleLead {
+  font-weight: 300;
+}
+
+.team {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.teamLead,
+.teamRow {
+  display: flex;
+  gap: 24px;
+}
+
+.teamRows {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.teamCard {
+  flex: 1 1 0;
+  min-width: 0;
+  height: 200px;
+  border-radius: 24px;
+  background: #fff6e5;
+}
+
+.teamCardSmall {
+  flex: 0 1 200px;
+  height: 105px;
+}
+
+/* ---------- the journey continues ---------- */
+.journey {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  padding: 100px var(--gutter) 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.plane {
+  left: calc(50% + 216.555px);
+  top: 105.55px;
+}
+
+.cloudSmall {
+  left: calc(50% - 508.583px);
+  top: 193px;
+}
+
+.cloudLarge {
+  left: calc(50% - 600.082px);
+  top: 418px;
+}
+
+.cloudMedium {
+  left: calc(50% + 420.075px);
+  top: 307px;
+}
+
+.journeyText {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 770px;
+  max-width: 100%;
+  color: var(--ink);
+  text-align: center;
+}
+
+.journeyBody {
+  width: 468px;
+  max-width: 100%;
+}
+
+.journeyActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.journeyActions .journeyPrimary {
+  width: 210px;
+}
+
+/* Figma draws the 1px outline inside the 50px pill */
+.journeyActions .journeyOutline {
+  border: 1px solid var(--ink);
+  background: transparent;
+}
+
+.skyline {
+  width: 1200.56px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1280px) {
+  .circleGrid {
+    flex-wrap: wrap;
+  }
+
+  .circleCol {
+    flex: 0 1 calc(50% - 8px);
+  }
+}
+
+@media (max-width: 1100px) {
+  .heroTitle {
+    font-size: 72px;
+  }
+
+  .title {
+    font-size: 44px;
+    line-height: 1.2;
+  }
+
+  .missionText,
+  .foundersText {
+    flex-basis: 420px;
+  }
+
+  .foundersText {
+    height: auto;
+    padding-block: 40px;
+  }
+
+  .ideaCard {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .ideaText {
+    flex: none;
+    width: 100%;
+    max-width: 594px;
+  }
+
+  .strips {
+    flex: none;
+    width: 100%;
+    max-width: 633px;
+  }
+
+}
+
+@media (max-width: 900px) {
+  .hero {
+    justify-content: center;
+    height: auto;
+    min-height: 560px;
+    padding: 64px 16px;
+  }
+
+  .heroInner {
+    gap: 40px;
+    padding: 24px 0;
+  }
+
+  .heroTitle {
+    font-size: 56px;
+    letter-spacing: -1px;
+  }
+
+  .mission,
+  .founders {
+    padding: 56px 16px 72px;
+  }
+
+  .missionCard::before,
+  .foundersWrap::before,
+  .traditionMedia::before,
+  .traditionLine,
+  .bunting,
+  .cloudOutline,
+  .cloudFilled,
+  .plane,
+  .cloudSmall,
+  .cloudLarge,
+  .cloudMedium {
+    display: none;
+  }
+
+  .missionCard,
+  .foundersCard {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 0 40px;
+    border-radius: 40px;
+  }
+
+  /* stacked: the photo goes on top and fades into the panel at its bottom */
+  .foundersCard {
+    flex-direction: column-reverse;
+  }
+
+  .missionPhoto,
+  .foundersPhoto {
+    flex: none;
+    width: 100%;
+    height: 420px;
+    border-radius: 40px 40px 0 0;
+  }
+
+  .missionPhoto::before,
+  .foundersPhoto::before {
+    display: none;
+  }
+
+  .missionFade,
+  .foundersFade {
+    --fade-dir: to bottom;
+    top: auto;
+    right: 0;
+    left: 0;
+    width: auto;
+    height: 140px;
+  }
+
+  .missionFade {
+    background: linear-gradient(to bottom, rgba(241, 247, 252, 0) 4.6386%, #f1f7fc 87.545%);
+  }
+
+  .foundersFade {
+    background: linear-gradient(to bottom, rgba(13, 34, 48, 0) 4.6386%, #0d2230 87.545%);
+  }
+
+  .missionText,
+  .foundersText {
+    flex: none;
+    width: 100%;
+    height: auto;
+    padding: 0 24px;
+  }
+
+  .rings {
+    left: auto;
+    right: -120px;
+    top: auto;
+    bottom: -560px;
+  }
+
+  .unity,
+  .people {
+    padding: 72px 16px;
+  }
+
+  .unityRow {
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .unityText {
+    flex: none;
+    width: 100%;
+    max-width: 531px;
+  }
+
+  .globe {
+    flex: none;
+    width: 100%;
+    max-width: 537px;
+    height: auto;
+    aspect-ratio: 537 / 365;
+  }
+
+  .idea {
+    padding: 56px 16px 72px;
+  }
+
+  .ideaCard {
+    padding: 24px;
+    border-radius: 40px;
+  }
+
+  .strips {
+    height: 480px;
+  }
+
+  /* the Figma crops are exact only for 211px strips; below that, cover */
+  .strip .stripZoom {
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0;
+  }
+
+  .circles,
+  .tradition {
+    gap: 48px;
+    padding: 72px 16px;
+  }
+
+  .traditionRow {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .traditionMedia,
+  .traditionText {
+    flex: none;
+    width: 100%;
+    max-width: 611px;
+  }
+
+  .traditionPhoto {
+    height: auto;
+    aspect-ratio: 1;
+    border-radius: 40px;
+  }
+
+  .people {
+    gap: 48px;
+  }
+
+  .journey {
+    gap: 48px;
+    padding: 72px 16px 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .heroLead {
+    font-size: 16px;
+  }
+
+  .heroActions,
+  .journeyActions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .title {
+    font-size: 36px;
+    letter-spacing: -1px;
+  }
+
+  .missionPhoto,
+  .foundersPhoto {
+    height: 300px;
+  }
+
+  .strips {
+    height: 360px;
+  }
+
+  .circleCol {
+    flex: none;
+    width: 100%;
+    height: auto;
+  }
+
+  /* stacked: every circle reads title first, then its photo */
+  .circleCard {
+    order: -1;
+    min-height: 0;
+  }
+
+  .circlePhoto {
+    flex: none;
+    height: 260px;
+  }
+
+  .teamLead,
+  .teamRow {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .teamLead {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .teamLead .teamCard {
+    height: 160px;
+  }
+
+  .teamLead .teamCard:last-child:nth-child(odd) {
+    grid-column: span 2;
+  }
+
+  .teamRows {
+    gap: 16px;
+  }
+}

@@ -1,0 +1,392 @@
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: -1;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 771px;
+  max-width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.heroLead {
+  width: 541px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* ---------- intro + contact panel ---------- */
+.contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 90px;
+  padding: 80px var(--gutter) 120px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.intro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 68px;
+  width: 100%;
+  max-width: 1180px;
+}
+
+.globe {
+  flex: none;
+  width: 322.726px;
+  height: 229px;
+}
+
+.introText {
+  display: flex;
+  flex: 0 1 722px;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  min-width: 0;
+  text-align: center;
+}
+
+.introTitle {
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  color: var(--ink);
+}
+
+.introBody {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 576px;
+  max-width: 100%;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+  color: rgba(7, 23, 34, 0.8);
+}
+
+.introKicker {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.panel {
+  position: relative;
+  width: 100%;
+  max-width: 1320px;
+}
+
+/* the tilted yellow card behind the blue panel; its centre sits 3.5px left
+   of and 1.5px above the panel's centre in Figma */
+.blob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(100% + 7.87px);
+  height: calc(100% - 34.405px);
+  border-radius: 64px;
+  background: #ffd082;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+  /* same order Figma applies: rotate, then flip, then skew */
+  transform: translate(calc(-50% - 3.5px), calc(-50% - 1.5px)) rotate(175.12deg) scale(1, -1) skewX(-0.18deg);
+}
+
+.grid {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
+  padding: 32px;
+  overflow: hidden;
+  border-radius: 64px;
+  background: var(--tile-blue);
+}
+
+.formCol {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.detailsCol {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 16px;
+  width: 420px;
+}
+
+/* Figma strokes sit inside the box, so padding = 28px - 2px border.
+   Pixel line heights reproduce Polin's "normal" line height in Figma. */
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 16px;
+  padding: 26px;
+  overflow: hidden;
+  border: 2px solid #0e55a7;
+  border-radius: var(--r-card);
+  background: #fff;
+  color: var(--ink);
+  text-align: right;
+}
+
+.formCard {
+  gap: 20px;
+  padding: 34px;
+}
+
+.formTitle {
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+}
+
+.detailsTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.detailRows {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.detailIcon {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 13px;
+  background: #afcae8;
+}
+
+.detailText {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: flex-start; /* RTL: right */
+  gap: 2px;
+  min-width: 0;
+  white-space: nowrap;
+}
+
+.detailLabel {
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+  opacity: 0.55;
+}
+
+.detailValue {
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
+a.detailValue:hover {
+  text-decoration: underline;
+}
+
+.issueCard {
+  gap: 10px;
+  background: #e7f6fd;
+  color: #062b4f;
+}
+
+.issueTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.issueText {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.55;
+  text-align: justify;
+  opacity: 0.85;
+}
+
+.socialCard {
+  gap: 14px;
+}
+
+.socialTitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(7, 23, 34, 0.2);
+  border-radius: 12px;
+  transition: background-color 0.16s ease;
+}
+
+.socialLink:hover {
+  background: var(--sky);
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1280px) {
+  .detailsCol {
+    width: 380px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .intro {
+    gap: 32px;
+  }
+
+  .globe {
+    width: 240px;
+    height: auto;
+  }
+
+  .introTitle {
+    font-size: 48px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .detailsCol {
+    width: 100%;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    height: auto;
+    min-height: 300px;
+    padding: 56px 16px;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .contact {
+    gap: 56px;
+    padding: 56px 16px 80px;
+  }
+
+  .intro {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .introText {
+    flex: none;
+    width: 100%;
+    gap: 24px;
+  }
+
+  .introTitle {
+    font-size: 34px;
+  }
+
+  .introKicker {
+    font-size: 20px;
+  }
+
+  .introBody {
+    font-size: 16px;
+  }
+
+  .blob {
+    display: none;
+  }
+
+  .grid {
+    padding: 16px;
+    gap: 16px;
+    border-radius: 40px;
+  }
+}
+
+@media (max-width: 760px) {
+  .card {
+    padding: 22px;
+  }
+
+  .formCard {
+    padding: 22px;
+  }
+
+  .detailText {
+    white-space: normal;
+  }
+
+  .detailValue {
+    overflow-wrap: anywhere;
+  }
+}

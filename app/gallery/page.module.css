@@ -1,0 +1,116 @@
+/* ---------- hero ---------- */
+.hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 350px;
+  padding: 74px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.heroImage {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: -1;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+}
+
+.heroTitle {
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1.8px;
+}
+
+.heroLead {
+  max-width: 700px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.heroCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 50px;
+  padding: 14px 28px;
+  border-radius: var(--r-pill);
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: transform 0.16s ease;
+}
+
+.heroCta:hover {
+  transform: translateY(-2px);
+}
+
+/* arrow asset points right; the design mirrors it to point forward in RTL */
+.heroCtaIcon {
+  transform: scaleX(-1);
+}
+
+/* ---------- gallery section ---------- */
+.gallery {
+  display: flex;
+  justify-content: center;
+  padding: var(--gutter);
+  background: #fff;
+  scroll-margin-top: 24px;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    height: auto;
+    min-height: 320px;
+    padding: 56px 16px;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+    letter-spacing: -1px;
+  }
+
+  .heroCta {
+    height: auto;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .gallery {
+    padding: 40px 16px;
+  }
+}
