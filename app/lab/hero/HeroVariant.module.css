@@ -28,7 +28,10 @@
   align-items: center;
   justify-content: center;
   min-height: 700px;
-  padding: 74px var(--gutter);
+  /* Figma pads 74px but the 562px row overhangs it by 5px each way; 69px
+     gives the same render at 700px and lets min-height grow the hero only
+     when the text really needs more room (user text spacing, zoom) */
+  padding: 69px var(--gutter);
   overflow: hidden;
   border-radius: 0 0 var(--r-card) var(--r-card);
   isolation: isolate;
@@ -47,7 +50,7 @@
   z-index: -1;
 }
 
-/* 562px tall inside a 552px content box: centred, it overhangs the padding by 5px */
+/* 562px tall: fills the 700px hero between its 69px paddings */
 .framedRow {
   display: flex;
   flex: none;
