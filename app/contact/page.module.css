@@ -106,6 +106,12 @@
   color: rgba(7, 23, 34, 0.8);
 }
 
+/* The browser sets Polin ~1% wider than Figma; 6px more keeps Figma's
+   three-line wrap. The copy is centred, so nothing moves. */
+.introBody p:last-child {
+  margin-inline: -3px;
+}
+
 .introKicker {
   font-size: 24px;
   font-weight: 600;

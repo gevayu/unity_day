@@ -45,7 +45,7 @@
   --page-width: 1440px;
   --gutter: 60px;
 
-  --font: "Polin", var(--font-rubik), "Assistant", system-ui, sans-serif;
+  --font: var(--font-polin), var(--font-rubik), system-ui, sans-serif;
 }
 
 *,

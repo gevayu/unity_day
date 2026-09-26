@@ -671,6 +671,12 @@
   text-align: center;
 }
 
+/* The browser sets Polin ~1% wider than Figma; 2px more keeps Figma's
+   four-line wrap. The copy is centred, so nothing moves. */
+.communityCopy p {
+  margin-inline: -2px;
+}
+
 .communityLine {
   position: absolute;
   pointer-events: none;
