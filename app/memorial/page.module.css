@@ -222,7 +222,11 @@
   letter-spacing: -1.8px;
 }
 
+/* The browser sets Polin slightly wider than Figma; 647px (Figma: 635)
+   reproduces Figma's four lines (636-664 all do). The text is centred,
+   so it doesn't move. */
 .boysText {
+  margin-inline: -6px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.4;
@@ -465,8 +469,12 @@
   max-width: 1320px;
 }
 
+/* Figma: 498px. The browser sets Polin slightly wider; 509px reproduces
+   Figma's line breaks (505-512 all do). The negative margins keep the
+   outer size at 498px, so the centred text and the photo don't move. */
 .daysText {
-  flex: 0 1 498px;
+  flex: 0 1 509px;
+  margin-inline: -5.5px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.4;
@@ -929,6 +937,10 @@
   .daysMedia {
     flex: none;
     width: 100%;
+  }
+
+  .daysText {
+    margin-inline: 0;
   }
 
   .daysPhoto {

@@ -50,6 +50,13 @@
   line-height: 1.4;
 }
 
+/* The browser sets Polin slightly wider than Figma; 565px (Figma: 541)
+   reproduces Figma's two-line wrap of the second paragraph (551-577 all do).
+   The text is centred, so it doesn't move. */
+.heroLead > p {
+  margin-inline: -12px;
+}
+
 /* ---------- intro + contact panel ---------- */
 .contact {
   display: flex;
@@ -104,6 +111,12 @@
   font-weight: 500;
   line-height: 1.4;
   color: rgba(7, 23, 34, 0.8);
+}
+
+/* The browser sets Polin ~1% wider than Figma; 6px more keeps Figma's
+   three-line wrap. The copy is centred, so nothing moves. */
+.introBody p:last-child {
+  margin-inline: -3px;
 }
 
 .introKicker {
@@ -332,6 +345,10 @@ a.detailValue:hover {
 
   .heroTitle {
     font-size: 40px;
+  }
+
+  .heroLead > p {
+    margin-inline: 0;
   }
 
   .contact {

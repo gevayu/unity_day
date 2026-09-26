@@ -55,8 +55,12 @@
   max-width: 100%;
 }
 
+/* The browser sets Polin slightly wider than Figma; 664px (Figma: 646)
+   reproduces Figma's line breaks in both paragraphs (659-669 all do).
+   The text is centred, so it doesn't move. */
 .heroText {
-  width: 100%;
+  width: calc(100% + 18px);
+  margin-inline: -9px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.4;
@@ -96,6 +100,11 @@
 
   .heroTitle {
     font-size: 44px;
+  }
+
+  .heroText {
+    width: 100%;
+    margin-inline: 0;
   }
 
   .quote p {

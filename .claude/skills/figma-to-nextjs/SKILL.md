@@ -17,9 +17,12 @@ The Figma MCP's own `figma-design-to-code` guidance still applies. Read `skill:/
     - Some frames (donation, checkout) use cut-down chrome: a header with only the status bar and logo, and a footer that is only the 337px dark bottom band. Use `<SiteHeader minimal />` and `<SiteFooter compact />`. If the page comes out ~267px taller than the frame, this is why.
   - `components/PillButton.tsx`: the 50px CTA pill, variants `dark`/`light`, optional arrow icon that is mirrored automatically.
   - `app/globals.css`: tokens `--ink #071722`, `--r-card 32px`, `--r-pill`, `--gutter 60px`, `--sky`, `--gradient-2`, and so on.
-- Fonts: Polin (the design font) is commercial and not bundled, so Rubik stands in. Text wrapping differences from that are the only accepted deviation.
+- Fonts: Polin (the design font, licensed) is self-hosted from `app/fonts` via `next/font/local` in `app/layout.tsx`, weights 300-900; Rubik is a non-preloaded fallback.
+  - Chrome sets Polin a little differently from Figma (per word anywhere from -3% to +3%, usually a bit wider). A paragraph can then wrap one word earlier than in Figma, which adds a line and, in vertically centred blocks, shifts everything around it.
+  - Fix it per paragraph, not globally: run `node .claude/skills/figma-to-nextjs/scripts/breaks.cjs <url> '<css selector>' '[["line 1","line 2",...]]'` with Figma's lines. It prints the box width needed for Figma's breaks and the width at which the next word would jump up. For centred text, widen with `margin-inline: -Npx` inside that range (see `.copy > p` in `app/_home/ChoiceSection.module.css`).
 - Assets: `public/site/` holds header/footer assets; each page's assets go in `public/<page>/`.
 - Routes and their Figma nodes are listed in `README.md`. Add a row for every new page.
+- Explorations or anything the user wants "on the side, not connected to the site" go under `app/lab/` (its layout sets `robots: noindex, nofollow`); nothing in the site links there.
 - Footer link map: `HREFS` in `SiteFooter.tsx`. Wire links to any page that now exists.
 
 ## 1. Read the frame
@@ -122,6 +125,7 @@ node .claude/skills/figma-to-nextjs/scripts/smoke.cjs http://localhost:3000 /my-
 - Compare section by section. Page height should be within about 4px of the frame (the shared header and footer add about 1.7px).
 - Zoom into every photo edge, fade, rounded corner and rotated shape at scale 1.0. Artifacts only show up at 1:1.
 - `smoke.cjs` must report `ok` at 1440 **and** 390 for every route: no errors, no 4xx. When a page overflows, the script names the offending elements.
+- Also run `node .claude/skills/figma-to-nextjs/scripts/hscroll.cjs http://localhost:3000 <routes>` (1024-1439). Fixed-width rows and page-centred decorations that fit at 1440 often scroll the RTL page sideways just below it (on /prize/nominations and /unity-day they did). Fix with `overflow-x: clip` on the section, or move the breakpoint up to the row's real width.
 
 ## 5. Ship
 

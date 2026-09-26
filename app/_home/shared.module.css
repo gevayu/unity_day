@@ -1,0 +1,86 @@
+/* Pieces the homepage sections share (and the /lab hero explorations reuse). */
+
+/* Figma rounds every line box to whole pixels (16px x 1.4 renders as 22px,
+   54px x 1.2 as 65px), so line heights here are those rounded pixel values. */
+.h2 {
+  font-size: 54px;
+  font-weight: 700;
+  line-height: 65px;
+  letter-spacing: -1.8px;
+  color: var(--ink);
+  text-align: center;
+}
+
+/* A horizontal line SVG stood on end. As in Figma, the image sits just above
+   the zero-height line and turns 90deg about it, so the stroke lands on the
+   same (half-)pixels as the design. */
+.vDivider {
+  position: relative;
+  flex: none;
+  width: 0;
+}
+
+.vDivider img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform-origin: 0 0;
+  transform: rotate(90deg) translate(-50%, -100%);
+}
+
+/* the tilted rounded cards behind the choice / unity panels; same transform
+   order Figma applies: rotate, then flip, then skew */
+.blob {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  border-radius: 114.142px;
+  box-shadow: 0 60px 40px -60px rgba(31, 32, 34, 0.32);
+}
+
+/* Photo fades into a panel colour: blur ramps in with the fill (Figma only
+   blurs as much as the fill is opaque), then the fill is painted over it.
+   Set --fade-angle, --fade-from, --fade-to, --fade-rgb ("r, g, b") and
+   optionally --fade-alpha (the opacity the fill ends at, default 1). */
+.fade {
+  position: absolute;
+}
+
+.fade::before,
+.fade::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.fade::before {
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(
+    var(--fade-angle),
+    transparent var(--fade-from),
+    rgba(0, 0, 0, var(--fade-alpha, 1)) var(--fade-to)
+  );
+  mask-image: linear-gradient(
+    var(--fade-angle),
+    transparent var(--fade-from),
+    rgba(0, 0, 0, var(--fade-alpha, 1)) var(--fade-to)
+  );
+}
+
+.fade::after {
+  background: linear-gradient(
+    var(--fade-angle),
+    rgba(var(--fade-rgb), 0) var(--fade-from),
+    rgba(var(--fade-rgb), var(--fade-alpha, 1)) var(--fade-to)
+  );
+}
+
+@media (max-width: 900px) {
+  .h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+}

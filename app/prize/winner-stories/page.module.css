@@ -85,6 +85,15 @@
   font-weight: 700;
 }
 
+/* The browser sets Polin slightly wider than Figma; at 641px (Figma: 632)
+   the first paragraph breaks exactly as in Figma (637-709 all do). No width
+   reproduces the second one (its first line needs 641px, but at 640px the
+   second line already takes the next word); at 641px its first and last
+   lines match and only "אלו" moves up a line. The text is centred. */
+.introText > p:not(.introLead) {
+  margin-inline: -4.5px;
+}
+
 /* ---------- winners ---------- */
 /* the tilted photo backdrops can poke past narrow screens */
 .winners {

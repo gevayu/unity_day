@@ -1,0 +1,241 @@
+/* Hero explorations (Figma "HERO EXPLORATIONS", 2150:5601): 700 at 1440, like
+   the homepage hero. The copy, CTAs and stats are the homepage's HeroContent. */
+
+/* ---------- shared ---------- */
+/* every hero here is dark: the site's blue focus ring would vanish on it */
+.lab :focus-visible {
+  outline-color: #fff;
+}
+
+/* The copy frame has a drop shadow in Figma's layer panel, but Figma renders
+   none (the frame has no fill and clips its content), so none here either. */
+.lab .flat {
+  filter: none;
+}
+
+/* a 550px copy frame without side padding (the homepage's is full width + 18px) */
+.lab .narrow {
+  width: 550px;
+  max-width: 100%;
+  padding-inline: 0;
+}
+
+/* ---------- 1: framed photo ---------- */
+.framed {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 700px;
+  /* Figma pads 74px but the 562px row overhangs it by 5px each way; 69px
+     gives the same render at 700px and lets min-height grow the hero only
+     when the text really needs more room (user text spacing, zoom) */
+  padding: 69px var(--gutter);
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+  isolation: isolate;
+}
+
+.backdrop {
+  object-fit: cover;
+  z-index: -2;
+}
+
+.framed::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--overlay);
+  z-index: -1;
+}
+
+/* 562px tall: fills the 700px hero between its 69px paddings */
+.framedRow {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  width: 100%;
+  max-width: 1320px;
+}
+
+.column {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 60px;
+  max-width: 100%;
+}
+
+.framedPhoto {
+  position: relative;
+  flex: 0 1 681px;
+  min-width: 0;
+  height: 562px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+}
+
+.framedPhoto img {
+  object-fit: cover;
+}
+
+/* ---------- 3-7: photo | panel ---------- */
+/* The bottom corners are rounded on the section. The panel colour sits on the
+   panel only, so nothing dark bleeds into the photo's anti-aliased corner. */
+/* min-height, not height: with user text spacing (WCAG 1.4.12) or larger
+   text the copy needs more room, and a fixed height clipped the kicker and stats. */
+.split {
+  display: flex;
+  min-height: 700px;
+  overflow: hidden;
+  border-radius: 0 0 var(--r-card) var(--r-card);
+}
+
+.panel {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  justify-content: center;
+  gap: 60px;
+  min-width: 0;
+  padding-block: 40px;
+  background: var(--panel-bg);
+  isolation: isolate;
+}
+
+/* 796 | 644: copy aligned to the outer (right) edge, 60px in; 10px on the photo side */
+.wide .panel {
+  align-items: flex-start;
+  padding-inline: var(--gutter) 10px;
+}
+
+.wide .photo {
+  width: 55.2778%;
+}
+
+/* 720 | 720: copy centred */
+.half .panel {
+  align-items: center;
+  padding-inline: var(--gutter);
+}
+
+.half .photo {
+  width: 50%;
+}
+
+.photo {
+  position: relative;
+  flex: none;
+}
+
+.photo img {
+  object-fit: cover;
+}
+
+/* Figma: a 700 x W strip turned 90deg against the panel edge */
+.fade {
+  --fade-from: 4.6386%;
+  --fade-to: 87.545%;
+  inset: 0 0 0 auto;
+  width: var(--fade-width);
+}
+
+/* 4: the photo again, cover-cropped to the panel, under the panel tint */
+.panelBackdrop {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+.panelBackdrop img {
+  object-fit: cover;
+}
+
+.panelBackdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--panel-overlay);
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1200px) {
+  /* the copy wraps to more lines here: let the hero grow rather than clip it */
+  .framed,
+  .split {
+    height: auto;
+    min-height: 700px;
+  }
+
+  .lab .stats {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 16px;
+  }
+
+  .wide .photo {
+    width: 50%;
+  }
+
+  .wide .panel,
+  .half .panel {
+    align-items: center;
+    padding-inline: 32px;
+  }
+
+  .column {
+    flex: 0 1 574px;
+  }
+}
+
+@media (max-width: 900px) {
+  .framed {
+    height: auto;
+    padding: 56px 16px;
+  }
+
+  .framedRow {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .column {
+    flex: none;
+    width: 100%;
+  }
+
+  .framedPhoto {
+    flex: none;
+    width: 100%;
+    height: 280px;
+  }
+
+  /* photo on top, copy under it */
+  .split {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  .wide .photo,
+  .half .photo {
+    width: 100%;
+    height: 320px;
+  }
+
+  .wide .panel,
+  .half .panel {
+    padding: 32px 16px 56px;
+  }
+
+  .fade {
+    --fade-angle: 180deg;
+    inset: auto 0 0 0;
+    width: 100%;
+    height: 50%;
+  }
+}

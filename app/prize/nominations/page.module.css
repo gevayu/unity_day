@@ -75,6 +75,9 @@
 .about {
   position: relative;
   padding: 100px var(--gutter);
+  /* between 1281 and 1439 the tilted card pokes past the left edge and
+     scrolls the RTL page sideways; clip only horizontally */
+  overflow-x: clip;
   background: #fff;
 }
 
@@ -283,6 +286,14 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1.4;
+}
+
+/* The browser sets Polin slightly wider than Figma; 557px (Figma: 537)
+   reproduces Figma's line breaks in both wide cards (549-562 all do).
+   The text is centred, so it doesn't move. */
+.categoryRow:last-child .categoryText {
+  width: calc(100% + 20px);
+  margin-inline: -10px;
 }
 
 .categoriesFoot {

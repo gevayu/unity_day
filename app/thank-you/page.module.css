@@ -111,7 +111,11 @@
   line-height: 1.15;
 }
 
+/* The browser sets Polin slightly wider than Figma; 635px (Figma: 622)
+   reproduces Figma's line breaks (631-638 all do). Widened toward the
+   end (left) side only, so the right-aligned edge stays put. */
 .moneyLead {
+  margin-inline-end: -13px;
   font-size: 18px;
   font-weight: 500;
   line-height: 1.55;
@@ -569,6 +573,10 @@
   .moneyTitle,
   .helpTitle {
     font-size: 34px;
+  }
+
+  .moneyLead {
+    margin-inline-end: 0;
   }
 
   .helpTitle {

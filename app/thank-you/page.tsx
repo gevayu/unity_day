@@ -49,7 +49,7 @@ export default function ThankYouPage() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className={styles.hero}>
           <Image src="/thank-you/hero.jpg" alt="" fill priority sizes="100vw" className={styles.heroImage} />
           <div className={styles.heroText}>

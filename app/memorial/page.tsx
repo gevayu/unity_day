@@ -78,7 +78,7 @@ export default function MemorialPage() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         {/* ---------- hero ---------- */}
         <section className={styles.hero}>
           <Image src="/memorial/hero.jpg" alt="" fill priority sizes="100vw" className={styles.heroImage} />

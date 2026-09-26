@@ -220,6 +220,9 @@
 .legalLinks {
   display: flex;
   gap: 24px;
+  /* Figma places this group 18px left of where space-between would; a 36px
+     margin on its left moves it 18px (x 563-829 at 1440, as in Figma) */
+  margin-left: 36px;
 }
 
 /* ---------- below the 1440 design ---------- */
@@ -282,5 +285,6 @@
   .legalLinks {
     flex-wrap: wrap;
     gap: 8px 24px;
+    margin-left: 0;
   }
 }

@@ -4,12 +4,14 @@ import { Fragment } from "react";
 import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import PillButton from "@/components/PillButton";
+import ChoiceSection from "./_home/ChoiceSection";
+import Divider from "./_home/Divider";
+import Hero from "./_home/Hero";
 import WinnerSpotlight from "./_home/WinnerSpotlight";
 import {
   EVENTS,
   EVENT_PHOTO,
   FIELD_STORIES,
-  HERO_STATS,
   IMPACT_STATS,
   JOIN_PATHS,
   JOURNEYS,
@@ -17,6 +19,7 @@ import {
   STORY_PHOTO,
   TONES,
 } from "./_home/data";
+import shared from "./_home/shared.module.css";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -28,108 +31,27 @@ export const metadata: Metadata = {
 const ARROW_LIGHT = "/nominations/icon-arrow-light.svg";
 const ARROW_DARK = "/nominations/icon-arrow-dark.svg";
 
-const DONATE_HREF = "/donate";
 // TODO: point these at their pages once they exist.
 const JOURNEY_START_HREF = "#";
 const EVENTS_HREF = "#";
 const JOIN_HREF = "#";
-
-// Figma draws these as horizontal line SVGs turned 90deg.
-function Divider({ src, length, thickness }: { src: string; length: number; thickness: number }) {
-  return (
-    <span className={styles.vDivider} style={{ height: length }} aria-hidden="true">
-      <Image src={src} alt="" width={length} height={thickness} />
-    </span>
-  );
-}
 
 export default function HomePage() {
   return (
     <>
       <SiteHeader />
 
-      <main>
-        {/* ---------- hero ---------- */}
-        <section className={styles.hero}>
-          <Image src="/winners/hero.jpg" alt="" fill priority sizes="100vw" className={styles.heroImage} />
-          <div className={styles.heroInner}>
-            <div className={styles.heroPanel}>
-              <div className={styles.heroCopy}>
-                <h1 className={styles.heroTitle}>
-                  <span className={styles.heroKicker}>מתוך הכאב הגדול ביותר</span>
-                  <span className={styles.heroHeadline}>בחרנו באחדות</span>
-                </h1>
-                <p className={styles.heroLead}>זו הדרך שבה אנחנו ממשיכים לצמוח, להתחבר ולבנות יחד</p>
-              </div>
-              <div className={styles.heroActions}>
-                <PillButton href={DONATE_HREF} icon={ARROW_LIGHT} className={`${styles.heroButton} ${styles.heroGhost}`}>
-                  לתרומה
-                </PillButton>
-                <PillButton href="#journeys" icon={ARROW_LIGHT} className={`${styles.heroButton} ${styles.heroBlue}`}>
-                  התחילו את המסע
-                </PillButton>
-              </div>
-            </div>
-            <ul className={styles.heroStats}>
-              {HERO_STATS.map((s) => (
-                <li key={s.label} className={styles.heroStat}>
-                  <span className={styles.heroStatValue} style={{ color: s.color }}>
-                    {s.value}
-                  </span>
-                  <span className={styles.heroStatLabel}>{s.label}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+      <main id="main" tabIndex={-1}>
+        <Hero />
 
-        {/* ---------- memory becomes a choice ---------- */}
-        <section className={styles.choice} aria-labelledby="choice-title">
-          <div className={styles.choiceCard}>
-            <span className={styles.choiceBlob} aria-hidden="true" />
-            <div className={styles.choicePhoto}>
-              <Image
-                src="/winners/about.jpg"
-                alt="צעירה בחולצת פסים מצלמת חברים ביער"
-                fill
-                sizes="(max-width: 900px) 100vw, 650px"
-              />
-              <span className={styles.choiceFade} aria-hidden="true" />
-            </div>
-            <div className={styles.choiceText}>
-              <div className={styles.choiceCopy}>
-                <h2 id="choice-title" className={styles.h2}>
-                  כשזיכרון הופך <span style={{ color: "#3692d0" }}>לבחירה</span>
-                </h2>
-                <p>
-                  בקיץ 2014 עצרה מדינת ישראל את נשימתה. חטיפתם של הנערים איל יפרח, גיל-עד שער ונפתלי פרנקל
-                  הובילה ל-18 ימי חיפושים. ח״י ימים שבהם, דווקא מתוך הכאב והחרדה, התגלתה עוצמת החיים
-                  המשותפים שלנו. באותם ימים התגייסו רבבות אנשים מכל חלקי העם מתוך תחושת ערבות הדדית ואחדות
-                  שפעמה בכל חלקי הארץ.
-                </p>
-                <div className={styles.choiceQuote}>
-                  <Divider src="/home/divider-quote.svg" length={46} thickness={2} />
-                  <p>איך שומרים על רוח האחדות גם כשהכאב נשאר והשגרה חוזרת?</p>
-                </div>
-                <p>
-                  אפשר היה להשאיר את הרוח הזו כזיכרון של משבר, אנחנו בחרנו אחרת. מתוך אותה אחדות צמחה תנועה
-                  חיה שפועלת עד היום לחבר בין אנשים, לעודד יוזמות ולהפוך את רוח הערבות ההדדית לעשייה. את
-                  העבר אי אפשר לשנות, אבל אפשר לבחור מה יוולד ממנו.
-                </p>
-              </div>
-              <PillButton href="/memorial" variant="light" icon={ARROW_DARK} className={styles.outlineButton}>
-                לסיפור המלא של 18 הימים
-              </PillButton>
-            </div>
-          </div>
-        </section>
+        <ChoiceSection />
 
         {/* ---------- three journeys ---------- */}
         <section id="journeys" className={styles.journeys} aria-labelledby="journeys-title">
           <Image src="/home/cloud.svg" alt="" width={405} height={198.164} className={styles.cloud} aria-hidden="true" />
           <div className={styles.journeysInner}>
             <header className={styles.journeysHead}>
-              <h2 id="journeys-title" className={styles.h2}>
+              <h2 id="journeys-title" className={shared.h2}>
                 שלושה נערים. שלוש משפחות.{" "}
                 <span className={styles.block} style={{ color: "#3692d0" }}>
                   שלושה מעגלים.
@@ -145,7 +67,7 @@ export default function HomePage() {
                 <li key={j.id} className={styles.journeyCard} style={{ "--tone": TONES[j.tone] } as React.CSSProperties}>
                   <div className={styles.journeyPhoto}>
                     <Image src={j.photo} alt={j.alt} fill sizes="(max-width: 900px) 100vw, 429px" />
-                    <span className={styles.toneFade} aria-hidden="true" />
+                    <span className={`${shared.fade} ${styles.toneFade}`} aria-hidden="true" />
                   </div>
                   <div className={styles.journeyBody}>
                     <div className={styles.journeyText}>
@@ -185,12 +107,12 @@ export default function HomePage() {
         {/* ---------- unity day ---------- */}
         <section className={styles.unity} aria-labelledby="unity-title">
           <div className={styles.unityCard}>
-            <span className={styles.unityBlob} aria-hidden="true" />
+            <span className={`${shared.blob} ${styles.unityBlob}`} aria-hidden="true" />
             <div className={styles.unityPanel}>
               <div className={styles.unityContent}>
                 <div className={styles.unityCopy}>
                   <Image src="/home/logo-heart.svg" alt="" width={159.977} height={77} aria-hidden="true" />
-                  <h2 id="unity-title" className={styles.h2}>
+                  <h2 id="unity-title" className={shared.h2}>
                     <span className={styles.block}>יום האחדות.</span>
                     <span className={styles.block}>יום אחד. תנועה שלמה.</span>
                   </h2>
@@ -223,7 +145,7 @@ export default function HomePage() {
                 fill
                 sizes="(max-width: 900px) 100vw, 750px"
               />
-              <span className={styles.unityFade} aria-hidden="true" />
+              <span className={`${shared.fade} ${styles.unityFade}`} aria-hidden="true" />
             </div>
           </div>
         </section>
@@ -233,7 +155,7 @@ export default function HomePage() {
           <div className={styles.prizeRow}>
             <div className={styles.prizeIntro}>
               <div className={styles.prizeCopy}>
-                <h2 id="prize-title" className={styles.h2}>
+                <h2 id="prize-title" className={shared.h2}>
                   <span className={styles.block}>כשאחדות הופכת</span>
                   <span className={styles.block} style={{ color: "#fab612" }}>
                     למופת
@@ -256,7 +178,7 @@ export default function HomePage() {
         {/* ---------- people become a community ---------- */}
         <section className={styles.communitySection} aria-labelledby="community-title">
           <div className={styles.communityCopy}>
-            <h2 id="community-title" className={styles.h2}>
+            <h2 id="community-title" className={shared.h2}>
               <span className={styles.block}>כשאנשים</span>
               <span className={styles.block} style={{ color: "#8dbf22" }}>
                 הופכים לקהילה
@@ -276,7 +198,7 @@ export default function HomePage() {
 
         {/* ---------- upcoming events ---------- */}
         <section className={styles.events} aria-labelledby="events-title">
-          <h2 id="events-title" className={styles.h2}>
+          <h2 id="events-title" className={shared.h2}>
             <span className={styles.block}>האירועים הקרובים</span>
             <span className={styles.block} style={{ color: "#557799" }}>
               ברחבי הארץ
@@ -320,7 +242,7 @@ export default function HomePage() {
           <Image src="/home/hearts-right.svg" alt="" width={681.485} height={145} className={styles.heartsRight} aria-hidden="true" />
           <div className={styles.storiesInner}>
             <header className={styles.storiesHead}>
-              <h2 id="stories-title" className={styles.h2}>
+              <h2 id="stories-title" className={shared.h2}>
                 סיפורים <span style={{ color: "#8bb6e1" }}>מהשטח</span>
               </h2>
               <p className={styles.storiesLead}>
@@ -381,7 +303,7 @@ export default function HomePage() {
         {/* ---------- ways to join ---------- */}
         <section className={styles.join} aria-labelledby="join-title">
           <header className={styles.joinHead}>
-            <h2 id="join-title" className={styles.h2}>
+            <h2 id="join-title" className={shared.h2}>
               מוכנים להצטרף?
             </h2>
             <p className={styles.joinLead}>כל אחד יכול להתחיל מהמקום שמתאים לו. מה השביל שלך?</p>
