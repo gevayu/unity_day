@@ -1,0 +1,152 @@
+/* "כשזיכרון הופך לבחירה", Figma "Frame 2147227472" in HOMEPAGE (2024:11): 940 at 1440. */
+.section {
+  position: relative;
+  padding: 100px var(--gutter) 140px;
+  overflow: hidden;
+  background: #fff;
+  isolation: isolate;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1320px;
+  margin-inline: auto;
+  padding-left: 32px;
+  border-radius: 64px;
+  background: #f1f7fc;
+}
+
+/* 1330.85 x 686.76 at 1440, centred 5.84px right / 0.7px above the card's centre */
+.blob {
+  width: calc(100% + 10.85px);
+  height: calc(100% - 13.241px);
+  background: var(--brand-blue);
+  transform: translate(calc(-50% + 5.84px), calc(-50% - 0.704px)) rotate(175.12deg) scale(1, -1)
+    skewX(-0.18deg);
+}
+
+/* In Figma this panel sits at x=1320 and is flipped horizontally, so it
+   renders on the right of the card with the photo mirrored. The corners on
+   the text side sit under the opaque end of the fade, so they stay square. */
+.photo {
+  position: relative;
+  flex: 0 1 650px;
+  min-width: 0;
+  height: 700px;
+  overflow: hidden;
+  border-radius: 0 64px 64px 0;
+}
+
+.photo img {
+  object-fit: cover;
+  object-position: 37.5% 50%;
+  transform: scaleX(-1);
+}
+
+.fade {
+  --fade-angle: 270.15deg;
+  --fade-from: 4.6386%;
+  --fade-to: 87.545%;
+  --fade-rgb: 241, 247, 252;
+  inset: 0 auto 0 0;
+  width: 66.31%;
+}
+
+.text {
+  display: flex;
+  flex: 0 1 606px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  min-width: 0;
+  height: 636px;
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 22px;
+  color: var(--ink);
+  text-align: center;
+}
+
+.quote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  width: 100%;
+  height: 46px;
+}
+
+.quote p {
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 22px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.button {
+  padding-inline: 29px;
+  border: 1px solid var(--ink);
+}
+
+/* ---------- below the 1440 design ---------- */
+@media (max-width: 1200px) {
+  .quote {
+    height: auto;
+  }
+
+  .quote p {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 900px) {
+  .section {
+    padding: 56px 16px;
+  }
+
+  .card {
+    flex-direction: column;
+    gap: 32px;
+    padding: 0 0 40px;
+    border-radius: var(--r-card);
+  }
+
+  .blob {
+    display: none;
+  }
+
+  .photo {
+    flex: none;
+    width: 100%;
+    height: 420px;
+    border-radius: var(--r-card) var(--r-card) 0 0;
+  }
+
+  .fade {
+    --fade-angle: 180deg;
+    inset: auto 0 0 0;
+    width: 100%;
+    height: 50%;
+  }
+
+  .text {
+    flex: none;
+    width: 100%;
+    height: auto;
+    gap: 40px;
+    padding-inline: 24px;
+  }
+}
