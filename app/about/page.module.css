@@ -331,6 +331,13 @@
   text-align: center;
 }
 
+/* Polin sets a little wider in the browser than in Figma: at the column's
+   594px this paragraph takes 5 lines (Figma: 4) and lifts the heading. 600px
+   gives Figma's 4 lines (598-605 all do); the second paragraph stays at 594. */
+.ideaText .body > p:first-child {
+  margin-inline: -3px;
+}
+
 .ideaTitle {
   width: 461px;
   max-width: 100%;
@@ -852,6 +859,10 @@
     flex: none;
     width: 100%;
     max-width: 594px;
+  }
+
+  .ideaText .body > p:first-child {
+    margin-inline: 0;
   }
 
   .strips {

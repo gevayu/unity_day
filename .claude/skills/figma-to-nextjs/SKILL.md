@@ -125,6 +125,7 @@ node .claude/skills/figma-to-nextjs/scripts/smoke.cjs http://localhost:3000 /my-
 - Compare section by section. Page height should be within about 4px of the frame (the shared header and footer add about 1.7px).
 - Zoom into every photo edge, fade, rounded corner and rotated shape at scale 1.0. Artifacts only show up at 1:1.
 - `smoke.cjs` must report `ok` at 1440 **and** 390 for every route: no errors, no 4xx. When a page overflows, the script names the offending elements.
+- Also run `node .claude/skills/figma-to-nextjs/scripts/hscroll.cjs http://localhost:3000 <routes>` (1024-1439). Fixed-width rows and page-centred decorations that fit at 1440 often scroll the RTL page sideways just below it (on /prize/nominations and /unity-day they did). Fix with `overflow-x: clip` on the section, or move the breakpoint up to the row's real width.
 
 ## 5. Ship
 
