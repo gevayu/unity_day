@@ -114,6 +114,13 @@
   text-align: center;
 }
 
+/* The browser sets Polin slightly wider than Figma; 389px (Figma: 381)
+   reproduces Figma's line breaks in all three cards (385-394 all do).
+   The text is centred, so it doesn't move. */
+.journeyText > p {
+  margin-inline: -4px;
+}
+
 .journeyTitle {
   font-size: 28px;
   font-weight: 600;
@@ -332,6 +339,13 @@
   text-align: center;
 }
 
+/* The browser sets Polin slightly wider than Figma; 516px (Figma: 496)
+   reproduces Figma's four-line wrap (498-536 all do). The text is
+   centred, so it doesn't move. */
+.prizeCopy > p {
+  margin-inline: -10px;
+}
+
 /* ---------- people become a community (458) ---------- */
 .communitySection {
   position: relative;
@@ -469,7 +483,11 @@
   width: 63px;
 }
 
+/* In Polin "19:30" is ~3px wider than this box; overflowing text would be
+   start-aligned, so a flex box keeps it centred on the box as in Figma. */
 .eventTime {
+  display: flex;
+  justify-content: center;
   width: 39px;
 }
 
@@ -908,6 +926,10 @@
     width: 100%;
     gap: 40px;
     padding: 40px 20px;
+  }
+
+  .prizeCopy > p {
+    margin-inline: 0;
   }
 
   .communitySection {

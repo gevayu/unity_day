@@ -123,8 +123,10 @@
   letter-spacing: -1.8px;
 }
 
+/* Figma: 561. The browser sets Polin slightly wider; 577px reproduces
+   Figma's four-line wrap (563-592 all do). Centred, so nothing else moves. */
 .heroLead {
-  width: 561px;
+  width: 577px;
   max-width: 100%;
   font-size: 18px;
   font-weight: 500;
@@ -460,8 +462,10 @@
   line-height: 20px;
 }
 
+/* Figma: 237. The browser sets Polin slightly wider; 254px reproduces
+   Figma's three-line wrap (243-265 all do). Centred, so nothing else moves. */
 .circleTextNarrow {
-  width: 237px;
+  width: 254px;
   max-width: 100%;
 }
 
@@ -642,6 +646,13 @@
 
 .foundersBody {
   font-weight: 400;
+}
+
+/* The browser sets Polin slightly wider than Figma; 612px (Figma: 606)
+   reproduces Figma's line breaks in both paragraphs (608-616 all do).
+   The text is centred, so it doesn't move. */
+.foundersBody > p {
+  margin-inline: -3px;
 }
 
 /* outer (left) corners clipped, inner ones painted under the fade */
