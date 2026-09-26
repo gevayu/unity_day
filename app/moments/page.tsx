@@ -17,7 +17,7 @@ export default function MomentsPage() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className={styles.hero}>
           <Image
             src="/gallery/photo-5.jpg"

@@ -21,7 +21,7 @@ export default function DonatePage() {
     <>
       <SiteHeader minimal />
 
-      <main className={heebo.variable}>
+      <main id="main" tabIndex={-1} className={heebo.variable}>
         <section className={styles.hero}>
           <Image src="/gallery/photo-2.jpg" alt="" fill priority sizes="100vw" className={styles.heroImage} />
           <div className={styles.heroInner}>

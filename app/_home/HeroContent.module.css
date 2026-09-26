@@ -65,9 +65,12 @@
   background: var(--brand-blue);
 }
 
+/* Dark glass with a white rim. White text on the old rgba(255,255,255,.55)
+   fill was about 2.6:1 over the photo (WCAG 1.4.3 asks for 4.5:1). */
 .ghost {
   width: 189px;
-  background: rgba(255, 255, 255, 0.55);
+  background: rgba(7, 23, 34, 0.55);
+  box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, 0.9);
 }
 
 .stats {

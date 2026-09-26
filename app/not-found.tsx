@@ -64,7 +64,7 @@ export default function NotFound() {
     <>
       <SiteHeader />
 
-      <main>
+      <main id="main" tabIndex={-1}>
         <section className={styles.hero}>
           <Image
             src="/not-found/cloud-hero-right.svg"

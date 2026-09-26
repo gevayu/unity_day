@@ -27,7 +27,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 700px;
+  min-height: 700px;
   padding: 74px var(--gutter);
   overflow: hidden;
   border-radius: 0 0 var(--r-card) var(--r-card);
@@ -83,9 +83,11 @@
 /* ---------- 3-7: photo | panel ---------- */
 /* The bottom corners are rounded on the section. The panel colour sits on the
    panel only, so nothing dark bleeds into the photo's anti-aliased corner. */
+/* min-height, not height: with user text spacing (WCAG 1.4.12) or larger
+   text the copy needs more room, and a fixed height clipped the kicker and stats. */
 .split {
   display: flex;
-  height: 700px;
+  min-height: 700px;
   overflow: hidden;
   border-radius: 0 0 var(--r-card) var(--r-card);
 }

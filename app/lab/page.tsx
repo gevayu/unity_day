@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function LabIndexPage() {
   return (
-    <main className={styles.page}>
+    <main id="main" tabIndex={-1} className={styles.page}>
       <div className={styles.head}>
         <p className={styles.eyebrow}>מעבדת עיצוב</p>
         <h1 className={styles.title}>גרסאות הירו לדף הבית</h1>
