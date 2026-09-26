@@ -79,6 +79,13 @@
   text-align: center;
 }
 
+/* The browser sets Polin slightly wider than Figma; 614px (Figma: 606)
+   reproduces Figma's line breaks in both paragraphs (611-621 all do).
+   The text is centred, so it doesn't move. */
+.copy > p {
+  margin-inline: -4px;
+}
+
 .quote {
   display: flex;
   align-items: center;
